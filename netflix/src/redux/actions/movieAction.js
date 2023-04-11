@@ -1,4 +1,6 @@
 import api from "../api";
+import {movieActions} from '../reducer/movieReducer'
+
 
 const API_KEY=process.env.REACT_APP_API_KEY
 console.log(API_KEY)
@@ -25,8 +27,14 @@ function getMovies() {
     
     let [popularMovies, topRatedMovies, upComingMovies] = 
     await Promise.all([popularMovieApi, topRateApi, upComingApi])
-    console.log(popularMovies)
+    
+        dispatch(movieActions.getPopular(popularMovies.data))
+        dispatch(movieActions.getTopRate(topRatedMovies.data))
+        dispatch(movieActions.getupComing(upComingMovies.data))
+
+        
     }
+    
 }
 
 export const movieAction = {
