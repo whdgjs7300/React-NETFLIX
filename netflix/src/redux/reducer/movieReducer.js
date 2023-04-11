@@ -3,13 +3,13 @@ import { createSlice } from '@reduxjs/toolkit'
 let initialState = {
     popularMovies: {},
     topRatedMovies: {},
-    upcomingMovies: {},
+    upComingMovies: {},
 
 }
 
 
 const movieSlice = createSlice({
-    name : 'product',
+    name : 'movie',
     initialState,
     reducers: {
         getPopular(state, action) {
@@ -18,12 +18,12 @@ const movieSlice = createSlice({
         getTopRate(state, action) {
             state.topRatedMovies = action.payload.data
         },
-        getupComing(state, action) {
-            state.upcomingMovies = action.payload.data
+        getUpComing(state, action) {
+            state.upComingMovies = action.payload.data
         }
 
     },
 })
-console.log(initialState.popularMovies)
+
 export const movieActions = movieSlice.actions;
 export default movieSlice.reducer;

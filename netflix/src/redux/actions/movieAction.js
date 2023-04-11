@@ -14,9 +14,9 @@ function getMovies() {
         // 첫번째 api 설정
         const popularMovieApi = api.get(`/movie/popular?api_key=${API_KEY}&language=en-US&page=1`)
         // 두번째 api 설정
-        const topRateApi = api.get(`movie/top_rated?api_key=${API_KEY}&language=en-US&page=1`)
+        const topRateApi = api.get(`/movie/top_rated?api_key=${API_KEY}&language=en-US&page=1`)
         // 세번째 api 설정
-        const upComingApi = api.get(`movie/upcoming?api_key=${API_KEY}&language=en-US&page=1`)
+        const upComingApi = api.get(`/movie/upcoming?api_key=${API_KEY}&language=en-US&page=1`)
         
 
 
@@ -30,7 +30,7 @@ function getMovies() {
     
         dispatch(movieActions.getPopular(popularMovies.data))
         dispatch(movieActions.getTopRate(topRatedMovies.data))
-        dispatch(movieActions.getupComing(upComingMovies.data))
+        dispatch(movieActions.getUpComing(upComingMovies.data))
 
         
     }
