@@ -3,7 +3,7 @@ import {movieActions} from '../reducer/movieReducer'
 
 
 const API_KEY=process.env.REACT_APP_API_KEY
-console.log(API_KEY)
+
 function getMovies() {
     // 미들웨어는 함수안에 함수를 return함
     // axios는 프론트, 백에서 둘다 쓰임(node.js에서 fetch가 쓰이지 않음)
