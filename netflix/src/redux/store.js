@@ -1,10 +1,11 @@
-import { configureStore } from '@reduxjs/toolkit'
-import movieReducer from './reducer/movieReducer';
+import { configureStore, createStore, applyMiddleware, combineReducers } from '@reduxjs/toolkit'
+import { composeWithDevTools } from 'redux-devtools-extension';
+import thunk from 'redux-thunk';
+import rootReducer from './reducer'
 
-const store = configureStore({
-    reducer: {
-    movie : movieReducer,
-    }
-})
+let store = createStore(
+    rootReducer,
+    composeWithDevTools(applyMiddleware(thunk))
+)
 
 export default store;

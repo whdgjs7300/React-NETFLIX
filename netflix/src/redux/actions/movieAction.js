@@ -28,9 +28,13 @@ function getMovies() {
     let [popularMovies, topRatedMovies, upComingMovies] = 
     await Promise.all([popularMovieApi, topRateApi, upComingApi])
     
-        dispatch(movieActions.getPopular(popularMovies.data))
-        dispatch(movieActions.getTopRate(topRatedMovies.data))
-        dispatch(movieActions.getUpComing(upComingMovies.data))
+        dispatch({
+            type : "GET_MOVIES_SUCCESS",
+            payload : {popularMovies : popularMovies.data,
+            topRatedMovies : topRatedMovies.data,
+            upComingMovies : upComingMovies.data,
+            }
+        })
 
         
     }
