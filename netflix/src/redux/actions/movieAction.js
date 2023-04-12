@@ -30,7 +30,9 @@ function getMovies() {
     
         dispatch({
             type : "GET_MOVIES_SUCCESS",
-            payload : {popularMovies : popularMovies.data,
+            payload : 
+            {
+            popularMovies : popularMovies.data,
             topRatedMovies : topRatedMovies.data,
             upComingMovies : upComingMovies.data,
             }
