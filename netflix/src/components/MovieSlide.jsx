@@ -1,6 +1,7 @@
 
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+import Movies from '../pages/Movies';
 
 const responsive = {
     superLargeDesktop: {
@@ -22,12 +23,12 @@ const responsive = {
         }
     };
 
-const MovieSlide = () => {
+const MovieSlide = ({movies}) => {
 
     return (  
         <div>
             <Carousel responsive={responsive}>
-                <div>Item 1</div>
+                <div></div>
                 <div>Item 2</div>
                 <div>Item 3</div>
                 <div>Item 4</div>

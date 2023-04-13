@@ -11,6 +11,7 @@ function getMovies() {
     // 환경설정을 위해 .gitignore 파일에 .env 파일을 생략시킴
     // api를 동시에 처리하고 싶을 때  promise
     return async(dispatch)=>{
+        // 로딩스피너 
         // 첫번째 api 설정
         const popularMovieApi = api.get(`/movie/popular?api_key=${API_KEY}&language=en-US&page=1`)
         // 두번째 api 설정
