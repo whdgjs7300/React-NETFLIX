@@ -21,9 +21,11 @@ const Home = () => {
         <div>
             {popularMovies.results && <Banner movie={popularMovies.results[0]} />}
             <h1>popular Movie</h1>
-            <MovieSlide/>
+            <MovieSlide movies={popularMovies}/>
             <h1>Top rated Movie</h1>
+            <MovieSlide movies={topRatedMovies}/>
             <h1>upcoming Movie</h1>
+            <MovieSlide movies={upComingMovies}/>
 
         </div>
     );
