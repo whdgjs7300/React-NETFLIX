@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Banner from "../components/Banner";
+import MovieSlide from "../components/MovieSlide";
 import { movieAction } from "../redux/actions/movieAction";
 
 
@@ -19,6 +20,11 @@ const Home = () => {
     return ( 
         <div>
             {popularMovies.results && <Banner movie={popularMovies.results[0]} />}
+            <h1>popular Movie</h1>
+            <MovieSlide/>
+            <h1>Top rated Movie</h1>
+            <h1>upcoming Movie</h1>
+
         </div>
     );
 }
