@@ -1,7 +1,6 @@
 
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
-import Movies from '../pages/Movies';
 import MovieCard from './MovieCard';
 
 const responsive = {
@@ -28,9 +27,9 @@ const MovieSlide = ({movies}) => {
 
     return (  
         <div>
-            {console.log(movies)}
+            
             <Carousel responsive={responsive}>
-                {movies.results.map(item=> <MovieCard item={item}/>)}
+                {movies.results.map(item => <MovieCard item={item}/>)}
             </Carousel>
         </div>
     );
