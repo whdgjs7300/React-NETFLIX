@@ -1,11 +1,16 @@
 import Badge from 'react-bootstrap/Badge';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 const MovieCard = ({item}) => {
-    const {genreList} = useSelector(state=>state.movie)
+    const {genreList} = useSelector(state=>state.movie);
+    const navigate = useNavigate();
 
     return ( 
-        <div className="card"
+        <div onClick={()=>{
+            navigate(`movies/${item.id}`);
+        }} 
+        className="card"
         style={{backgroundImage:
         'url('+`https://www.themoviedb.org/t/p/w710_and_h400_multi_faces/${item.poster_path}`+')', 
         width:300, height:200,
