@@ -26,8 +26,14 @@ const MovieDetail = () => {
             <div>
                 <div>
                     <img src={`:https//www.themoviedb.org/t/p/w300_and_h450_bestv2${detailList.backdrop_path}`} alt="" />
+                    <h2>장르</h2>
+                    <p>연령</p>
+                    <p>설명</p>
                 </div>
+                
+                
             </div>
+            <div>리뷰박스</div>
         </div>
     );
 }
