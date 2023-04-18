@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import DetailCard from "../components/DetailCard";
 import { movieAction } from "../redux/actions/movieAction";
 
 const MovieDetail = () => {
@@ -15,6 +16,7 @@ const MovieDetail = () => {
     },[])
     
     return ( 
+        // 부트스트랩으로 설정
         <div>
             <div>
                 <h1>NETFLIX</h1>
@@ -31,9 +33,10 @@ const MovieDetail = () => {
                     <p>설명</p>
                 </div>
                 
-                
+                <DetailCard/>
             </div>
             <div>리뷰박스</div>
+            
         </div>
     );
 }
