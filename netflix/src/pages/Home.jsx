@@ -11,7 +11,7 @@ const Home = () => {
     const dispatch = useDispatch();
     const {popularMovies, topRatedMovies, upComingMovies, loading}= 
     useSelector(state=>state.movie);
-
+    console.log(topRatedMovies)
     useEffect(()=>{
         dispatch(movieAction.getMovies())
     },[]);

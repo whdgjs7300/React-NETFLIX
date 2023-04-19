@@ -21,8 +21,9 @@ function movieReducer(state=initialState, action) {
             upComingMovies : payload.upComingMovies,
             loading: false,
             genreList : payload.genreList,
-            detailList : payload.detailList,
             }
+        case "GET_DETAIL_MOVIES"  : 
+            return {...state, detailList : payload.detailList}
         case "GET_MOVIES_REQUEST" :
             return {...state, loading : true}
         case "GET_MOVIES_FAILURE" : 

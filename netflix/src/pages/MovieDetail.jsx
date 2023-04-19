@@ -9,7 +9,7 @@ const MovieDetail = () => {
     const dispatch = useDispatch();
     const {detailList} = useSelector(state=>state.movie)
     const getMoviesDetail= () => {
-        dispatch(movieAction.getMovies(id));
+        dispatch(movieAction.getDetail(id));
     }
     useEffect(()=>{
         getMoviesDetail();
