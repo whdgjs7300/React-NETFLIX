@@ -54,8 +54,9 @@ function getDetail(id) {
  // id별 api 설정
     const detailApi = api.get(`/movie/${id}?api_key=${API_KEY}&language=en-US`);
 
-    let [detailList] = await Promise.all([detailApi]);
-    dispatch({type : "GET_DETAIL_MOVIES", detailList : detailList.data})
+    let [detailList] = await Promise.all([detailApi])
+    
+    dispatch({type : "GET_DETAIL_MOVIES", payload: {detailList : detailList.data }})
 
     }
 

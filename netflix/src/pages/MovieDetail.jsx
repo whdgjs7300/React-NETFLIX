@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import DetailCard from "../components/DetailCard";
+import Review from "../components/Review";
 import { movieAction } from "../redux/actions/movieAction";
 
 const MovieDetail = () => {
@@ -14,7 +15,7 @@ const MovieDetail = () => {
     useEffect(()=>{
         getMoviesDetail();
     },[])
-    
+    console.log(detailList)
     return ( 
         // 부트스트랩으로 설정
         <div>
@@ -25,17 +26,11 @@ const MovieDetail = () => {
                 </div>
             </div>
 
-            <div>
-                <div>
-                    <img src={`:https//www.themoviedb.org/t/p/w300_and_h450_bestv2${detailList.backdrop_path}`} alt="" />
-                    <h2>장르</h2>
-                    <p>연령</p>
-                    <p>설명</p>
-                </div>
+
                 
                 <DetailCard/>
-            </div>
-            <div>리뷰박스</div>
+
+                <Review/>
             
         </div>
     );
