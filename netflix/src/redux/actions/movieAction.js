@@ -15,7 +15,7 @@ function getMovies(id) {
         try{
             dispatch({type:"GET_MOVIES_REQUEST"})
         // 첫번째 api 설정
-        const popularMovieApi = api.get(`/movie/popular?api_key=${API_KEY}&language=en-US&page=1`)
+        const popularMovieApi = api.get(`/movie/popular?api_key=${API_KEY}&language=en-US&page=1`);
         // 두번째 api 설정
         const topRateApi = api.get(`/movie/top_rated?api_key=${API_KEY}&language=en-US&page=1`)
         // 세번째 api 설정
@@ -32,7 +32,6 @@ function getMovies(id) {
     
     let [popularMovies, topRatedMovies, upComingMovies, genreList, detailList] = 
     await Promise.all([popularMovieApi, topRateApi, upComingApi, genreApi,DetailApi])
-            console.log(detailList)
         dispatch({
             type : "GET_MOVIES_SUCCESS",
             payload : 
@@ -48,8 +47,6 @@ function getMovies(id) {
             // 에러핸들링하는곳
             dispatch({type: "GET_MOVIES_FAILURE"})
         }
-
-
         
     }
     
