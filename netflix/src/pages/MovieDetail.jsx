@@ -8,7 +8,7 @@ import { movieAction } from "../redux/actions/movieAction";
 const MovieDetail = () => {
     const {id} = useParams();
     const dispatch = useDispatch();
-    const {detailList} = useSelector(state=>state.movie)
+    const {detailList, reviewList} = useSelector(state=>state.movie)
     const getMoviesDetail= () => {
         dispatch(movieAction.getDetail(id));
     }
@@ -29,8 +29,15 @@ const MovieDetail = () => {
 
                 
                 <DetailCard/>
+                {reviewList && <div>REVIEWS ({reviewList.results.length})</div> }
+                
 
-                <Review/>
+                {
+                    reviewList && reviewList.results.map((item)=>{
+                        return <Review reviewList={item}/>
+                    })
+                }
+                
             
         </div>
     );
