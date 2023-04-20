@@ -42,3 +42,11 @@
   opacity: 1;
   
 }
+.review_Box{
+  margin: auto;
+  padding-left: 12px;
+  padding-top: 12px;
+  border: 1px solid black;
+  width: 500px;
+  height: 100%;
+}

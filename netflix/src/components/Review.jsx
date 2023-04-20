@@ -7,14 +7,14 @@ const Review = ({reviewList}) => {
     
     return ( 
         <div>
-            <div>
+            <div className="review_Box">
                 <h3>
                     {reviewList?.author}
                 </h3>
                 <p>
                     {reviewList?.content}
                 </p>
-                <hr />
+                
             </div>
         </div>
     );

@@ -17,7 +17,6 @@ const MovieDetail = () => {
     },[])
     console.log(detailList)
     return ( 
-        // 부트스트랩으로 설정
         <div>
             <div>
                 <h1>NETFLIX</h1>
