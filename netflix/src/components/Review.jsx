@@ -6,15 +6,15 @@ const Review = ({reviewList}) => {
     
     
     return ( 
-        <div>
-            <div className="review_Box">
+        <div >
+            <div >
                 <h3>
                     {reviewList?.author}
                 </h3>
                 <p>
                     {reviewList?.content}
                 </p>
-                
+                <hr />
             </div>
         </div>
     );

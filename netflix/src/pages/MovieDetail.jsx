@@ -24,18 +24,20 @@ const MovieDetail = () => {
                     <span>{detailList?.title}</span>
                 </div>
             </div>
-
+                
 
                 
-                <DetailCard/>
+                <DetailCard detailList={detailList}/>
                 {reviewList && <div>REVIEWS ({reviewList.results.length})</div> }
                 
-
+                <div className="review_Box">
                 {
                     reviewList && reviewList.results.map((item)=>{
                         return <Review reviewList={item}/>
                     })
                 }
+                </div>
+                
                 
             
         </div>
