@@ -4,7 +4,7 @@ import { useEffect } from "react";
 
 const DetailCard = ({detailList}) => {
 
-    console.log(detailList.genres)
+    console.log(detailList)
 
     return ( 
         <div>
@@ -22,15 +22,17 @@ const DetailCard = ({detailList}) => {
                 }
                 
                 <h1>{detailList.title}</h1>
-                <p>영화 인기도</p>
+                <p>{detailList.popularity}</p>
                 <div>
-                    <span>평점</span>
-                    <span>연령제한</span>
+                    <span>{detailList.vote_average}</span>
+                    <span>{
+                        detailList.adult == false ? "under 18" : "청불"
+                        }</span>
                 </div>
-                <p>줄거리</p>
+                <p>{detailList.overview}</p>
                 <div>
                     <p>예산</p>
-                    <p>개봉일</p>
+                    <p>{detailList.release_date}</p>
                 </div>
             </div>
         </div>

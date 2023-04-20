@@ -25,9 +25,16 @@ const MovieDetail = () => {
                 </div>
             </div>
                 
-
-                
+                <div style={
+            {
+                backgroundImage:
+        'url('+`https://www.themoviedb.org/t/p/w300_and_h450_bestv2${detailList.poster_path}`+')',
+            }
+        }>
                 <DetailCard detailList={detailList}/>
+                </div>
+                
+                
                 {reviewList && <div>REVIEWS ({reviewList.results.length})</div> }
                 
                 <div className="review_Box">
