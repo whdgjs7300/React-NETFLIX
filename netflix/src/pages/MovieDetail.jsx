@@ -25,7 +25,7 @@ const MovieDetail = () => {
                 </div>
             </div>
                 
-                <div style={
+                <div className="detail_Box" style={
             {
                 backgroundImage:
         'url('+`https://www.themoviedb.org/t/p/w300_and_h450_bestv2${detailList.poster_path}`+')',

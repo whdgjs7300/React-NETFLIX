@@ -50,3 +50,12 @@
   width: 90%;
   height: 90%;
 }
+.detail_Box{
+  margin: auto;
+  height: 700px;
+  color: white;
+  width: 90%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
