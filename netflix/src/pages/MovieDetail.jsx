@@ -52,7 +52,11 @@ const MovieDetail = () => {
                     reviewList && reviewList.results.map((item)=>{
                         return <Review reviewList={item}/>
                     })
-                    : <RelatedMovies item={recommendList.results.poster_path} />
+                    :
+                    recommendList && recommendList.results.map((item)=>{
+                        return <RelatedMovies item={item} />
+                    })
+                    
                 }
                 </div>
                 
