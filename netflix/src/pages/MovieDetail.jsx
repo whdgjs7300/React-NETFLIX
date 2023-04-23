@@ -1,21 +1,24 @@
+import { useState } from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import DetailCard from "../components/DetailCard";
+import RelatedMovies from "../components/RelatedMovies";
 import Review from "../components/Review";
 import { movieAction } from "../redux/actions/movieAction";
 
 const MovieDetail = () => {
     const {id} = useParams();
     const dispatch = useDispatch();
-    const {detailList, reviewList} = useSelector(state=>state.movie)
+    const [modalOn, setModalOn] = useState(false);
+    const {detailList, reviewList, recommendList} = useSelector(state=>state.movie)
     const getMoviesDetail= () => {
         dispatch(movieAction.getDetail(id));
     }
     useEffect(()=>{
         getMoviesDetail();
     },[])
-    console.log(detailList)
+    console.log(recommendList)
     return ( 
         <div>
             <div>
@@ -35,13 +38,21 @@ const MovieDetail = () => {
                 </div>
                 
                 
-                {reviewList && <div>REVIEWS ({reviewList.results.length})</div> }
+                {reviewList && <div>
+                    <button onClick={()=>{
+                        setModalOn(false);
+                    }}>REVIEWS ({reviewList.results.length})</button>
+                    <button onClick={()=>{
+                        setModalOn(true);
+                    }}>RELATED MOVIES</button>
+                    </div> }
                 
                 <div className="review_Box">
-                {
+                {   modalOn == false ? 
                     reviewList && reviewList.results.map((item)=>{
                         return <Review reviewList={item}/>
                     })
+                    : <RelatedMovies item={recommendList.results.poster_path} />
                 }
                 </div>
                 

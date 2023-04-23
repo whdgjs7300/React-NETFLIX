@@ -55,13 +55,17 @@ function getDetail(id) {
     const detailApi = api.get(`/movie/${id}?api_key=${API_KEY}&language=en-US`);
 //  Review별 api 설정
     const reviewApi = api.get(`/movie/${id}/reviews?api_key=${API_KEY}&language=en-US&page=1`)
+//  추천영화 api
+    const recommendApi = api.get(`/movie/${id}/recommendations?api_key=${API_KEY}&language=en-US&page=1`)
 
-    let [detailList,reviewList] = await Promise.all([detailApi, reviewApi])
+    let [detailList,reviewList, recommendList] =
+    await Promise.all([detailApi, reviewApi, recommendApi])
     
     dispatch({type : "GET_DETAIL_MOVIES", payload:
     {
     detailList : detailList.data, 
     reviewList : reviewList.data,
+    recommendList : recommendList.data,
     }})
 
     }

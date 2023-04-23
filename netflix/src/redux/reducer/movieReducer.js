@@ -8,6 +8,8 @@ let initialState = {
     genreList : [],
     detailList : {},
     reviewList : '',
+    recommendList : {},
+
 };
 
 
@@ -24,7 +26,9 @@ function movieReducer(state=initialState, action) {
             }
         case "GET_DETAIL_MOVIES"  : 
             return {...state, detailList : payload.detailList,
-                            reviewList : payload.reviewList}
+                            reviewList : payload.reviewList,
+                            recommendList : payload.recommendList,    
+                        }
         case "GET_MOVIES_REQUEST" :
             return {...state, loading : true}
         case "GET_MOVIES_FAILURE" : 
