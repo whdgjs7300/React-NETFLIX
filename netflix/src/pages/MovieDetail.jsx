@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import DetailCard from "../components/DetailCard";
-import RelatedMovies from "../components/RelatedMovies";
+import MovieCard from "../components/MovieCard";
 import Review from "../components/Review";
 import { movieAction } from "../redux/actions/movieAction";
 
@@ -54,7 +54,7 @@ const MovieDetail = () => {
                     })
                     :
                     recommendList && recommendList.results.map((item)=>{
-                        return <RelatedMovies item={item} />
+                        return <MovieCard item={item} />
                     })
                     
                 }
