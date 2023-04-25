@@ -1,16 +1,14 @@
+import { useEffect } from 'react';
 import Badge from 'react-bootstrap/Badge';
-import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 
-const MovieCard = ({item}) => {
+const RelatedCard = ({item}) => {
     const {genreList} = useSelector(state=>state.movie);
-    const navigate = useNavigate();
+    
 
     return (
         
-        <div onClick={()=>{
-            navigate(`movies/${item.id}`);
-        }} 
+        <div 
         className="card"
         style={{backgroundImage:
         'url('+`https://www.themoviedb.org/t/p/w710_and_h400_multi_faces/${item.poster_path}`+')', 
@@ -25,7 +23,7 @@ const MovieCard = ({item}) => {
             <h1 className="card_title">{item.title}</h1>
             <div>{item.genre_ids.map(id=><Badge bg="danger">
                 {// 장르별 id와 item의 장르 id와 같은 값을 찾음
-                genreList.find((item) =>item.id == id).name}
+                genreList && genreList.find((item) => item.id === id).name }
             </Badge>)}
             
             </div>
@@ -39,4 +37,4 @@ const MovieCard = ({item}) => {
     );
 }
 
-export default MovieCard;
+export default RelatedCard;

@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import DetailCard from "../components/DetailCard";
-import MovieCard from "../components/MovieCard";
+import RelatedCard from "../components/RelatedCard";
 import Review from "../components/Review";
 import { movieAction } from "../redux/actions/movieAction";
 
@@ -18,6 +18,12 @@ const MovieDetail = () => {
     useEffect(()=>{
         getMoviesDetail();
     },[])
+    // RelatedCard 컴포넌트 재렌더링시 genresList 값이 undefined 방지
+    
+    useEffect(()=>{
+        dispatch(movieAction.getMovies())
+    },[modalOn])
+
     console.log(recommendList)
     return ( 
         <div>
@@ -54,7 +60,7 @@ const MovieDetail = () => {
                     })
                     :
                     recommendList && recommendList.results.map((item)=>{
-                        return <MovieCard item={item} />
+                        return <RelatedCard item={item} />
                     })
                     
                 }
