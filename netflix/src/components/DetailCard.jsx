@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import Badge from 'react-bootstrap/Badge';
 import { useEffect } from "react";
+import Modals from "./Modals";
 
 const DetailCard = ({detailList}) => {
 
@@ -33,6 +34,9 @@ const DetailCard = ({detailList}) => {
                 <div>
                     <p>예산</p>
                     <p>{detailList.release_date}</p>
+                    <button onClick={()=>{
+                        return <Modals/>
+                    }} >예고편 보기</button>
                 </div>
             </div>
         </div>

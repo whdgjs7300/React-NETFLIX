@@ -19,7 +19,6 @@ const MovieDetail = () => {
         getMoviesDetail();
     },[])
     // RelatedCard 컴포넌트 재렌더링시 genresList 값이 undefined 방지
-    
     useEffect(()=>{
         dispatch(movieAction.getMovies())
     },[modalOn])
