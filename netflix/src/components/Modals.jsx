@@ -35,7 +35,7 @@ const Modals = ({setModal}) => {
             </Modal.Header>
 
             <Modal.Body>
-            <YouTube videoId={videoList.results[1].key} opts={opts} onReady={onPlayerReady} />;
+            <YouTube videoId={videoList && videoList.results[0].key} opts={opts} onReady={onPlayerReady} />;
             </Modal.Body>
 
             <Modal.Footer >

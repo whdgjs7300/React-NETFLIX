@@ -12,13 +12,11 @@ const PageNations = () => {
     }
     return ( 
         <div>
-            <Pagination>{items}</Pagination>
-            <br />
+
 
             <Pagination size="lg">{items}</Pagination>
-            <br />
 
-            <Pagination size="sm">{items}</Pagination>
+
         </div>
     );
 }
