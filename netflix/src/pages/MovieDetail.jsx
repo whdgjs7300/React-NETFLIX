@@ -11,7 +11,7 @@ const MovieDetail = () => {
     const {id} = useParams();
     const dispatch = useDispatch();
     const [modalOn, setModalOn] = useState(false);
-    const {detailList, reviewList, recommendList} = useSelector(state=>state.movie)
+    const {detailList, reviewList, recommendList, videoList} = useSelector(state=>state.movie)
     const getMoviesDetail= () => {
         dispatch(movieAction.getDetail(id));
     }
@@ -22,6 +22,8 @@ const MovieDetail = () => {
     useEffect(()=>{
         dispatch(movieAction.getMovies())
     },[modalOn])
+
+
 
     console.log(recommendList)
     return ( 
