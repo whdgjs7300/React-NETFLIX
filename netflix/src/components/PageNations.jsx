@@ -1,24 +1,27 @@
-import Pagination from 'react-bootstrap/Pagination';
+import Pagination from "react-js-pagination";
+import { useState } from "react";
+
 
 const PageNations = () => {
-    let active = 1;
-    let items = [];
-    for (let number = 1; number <= 5; number++) {
-        items.push(
-        <Pagination.Item key={number} active={number === active}>
-            {number}
-        </Pagination.Item>,
-    );
-    }
-    return ( 
-        <div>
+const [activePage, setActivePage] = useState(15);
 
+const handlePageChange = (pageNumber) => {
 
-            <Pagination size="lg">{items}</Pagination>
+setActivePage(pageNumber);
+};
 
+return (
+<div>
+<Pagination
+    activePage={activePage}
+    itemsCountPerPage={10}
+    totalItemsCount={450}
+    pageRangeDisplayed={5}
+    onChange={handlePageChange}
+/>
+</div>
+);
+};
 
-        </div>
-    );
-}
 
 export default PageNations;

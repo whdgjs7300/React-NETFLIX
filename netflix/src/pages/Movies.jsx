@@ -7,6 +7,8 @@ const Movies = () => {
     
     return ( 
         <div>
+
+            
             <PageNations/>
         </div>
     );
