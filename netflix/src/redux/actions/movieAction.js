@@ -31,6 +31,7 @@ function getMovies() {
     
     let [popularMovies, topRatedMovies, upComingMovies, genreList,] = 
     await Promise.all([popularMovieApi, topRateApi, upComingApi, genreApi,])
+    let totalList = [];
         dispatch({
             type : "GET_MOVIES_SUCCESS",
             payload : 
@@ -39,6 +40,7 @@ function getMovies() {
             topRatedMovies : topRatedMovies.data,
             upComingMovies : upComingMovies.data,
             genreList : genreList.data.genres,
+            totalList : totalList.push(popularMovies.data,topRatedMovies.data,upComingMovies.data) 
             }
         })
         }catch(error){
