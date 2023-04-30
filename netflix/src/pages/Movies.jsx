@@ -5,6 +5,8 @@ import Pagination from "react-js-pagination";
 import { useState } from "react";
 import RelatedCard from "../components/RelatedCard";
 import ClipLoader from "react-spinners/ClipLoader";
+import SortBox from "../components/SortBox";
+import FilterBox from "../components/FilterBox";
 
 
 
@@ -29,17 +31,22 @@ const Movies = () => {
         getTotalMovies()
     },[activePage])
 
+
     if(loading){
         return <ClipLoader color="#ffff" loading={loading} size={150}/>
     }
     return ( 
         <div>
+            <div>
+                <SortBox/>
+                <FilterBox/>
+            </div>
             {
                 pageList && pageList.results.map((item)=>{
                     return <RelatedCard item={item}/>
                 })
-
             }
+
 <Pagination
     activePage={activePage}
     itemsCountPerPage={20}

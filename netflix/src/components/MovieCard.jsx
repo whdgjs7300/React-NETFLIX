@@ -17,7 +17,8 @@ const MovieCard = ({item}) => {
         width:300, height:200,
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
-        backgroundSize: "cover"
+        backgroundSize: "cover",
+
         }}>
 
 

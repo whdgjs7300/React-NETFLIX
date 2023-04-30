@@ -53,6 +53,8 @@ function getMovies(activePage) {
     }
     
 }
+
+
 function getDetail(id) {
     return async(dispatch)=> {
  // id별 api 설정
