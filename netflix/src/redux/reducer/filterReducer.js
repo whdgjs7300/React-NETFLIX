@@ -1,7 +1,7 @@
 
 
 let initialState = {
-    getGenre : [],
+    getGenre : {},
 
 };
 
@@ -11,6 +11,8 @@ function filterReducer(state=initialState, action) {
     switch(type) {
         case "GET_GENRE" :
             return {...state, getGenre : payload.getGenre}
+        default :
+            return {...state};    
     }
 }
 

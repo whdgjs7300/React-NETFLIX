@@ -9,7 +9,7 @@ const FilterBox = () => {
     
     useEffect(()=>{
         dispatch(movieAction.getFilter())
-    })
+    },[])
 
     console.log(getGenre);
 
