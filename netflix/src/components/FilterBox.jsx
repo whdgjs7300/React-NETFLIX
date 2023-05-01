@@ -4,12 +4,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { movieAction } from '../redux/actions/movieAction';
 import Dropdown from 'react-bootstrap/Dropdown';
 
-const FilterBox = () => {
-    const dispatch = useDispatch();
-    const {getGenre} = useSelector(state=> state.filter)
-    
-    
 
+const FilterBox = ({getGenre, pageList}) => {
+    const dispatch = useDispatch();
+
+    
 
 
     return ( 
@@ -23,9 +22,16 @@ const FilterBox = () => {
             
             
             {
-                getGenre && getGenre.map((item,i)=>{
+                getGenre.id && getGenre.map((item,i)=>{
                     return <Dropdown.Item href="#/action-2">
-                        <button >{item.name}</button>
+                        <button onClick={
+                            dispatch({type: "GET_CHANGE_FILLTER_DATA", 
+                        payload : {
+                            pageList : pageList.results.filter((pageList)=>{
+                                return item.id == pageList.genre_ids
+                            })
+                        }})
+                        } >{console.log(item)}</button>
                     </Dropdown.Item>
                     
                 })

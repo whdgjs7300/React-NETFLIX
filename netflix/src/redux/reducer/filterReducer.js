@@ -22,7 +22,9 @@ function filterReducer(state=initialState, action) {
         case "GET_FILTER_MOVIE_REQUEST" :
             return {...state, loading : true}        
         case "GET_FILTER_MOVIE_FAILURE" : 
-            return {...state, loading : false}      
+            return {...state, loading : false}     
+        case "GET_CHANGE_FILLTER_DATA" :
+            return {...state, pageList : payload.pageList}     
         default :
             return {...state};    
     }

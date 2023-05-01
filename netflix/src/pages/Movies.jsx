@@ -13,9 +13,9 @@ import FilteredMovieList from "../components/FilteredMovieList";
 
 const Movies = () => {
     const dispatch = useDispatch();
-    const {loading, pageList, }= 
+    const {loading, pageList,getGenre }= 
     useSelector(state=>state.filter);
-    console.log(pageList)
+    console.log()
 
     // 페이지 네이션 state
     const [activePage, setActivePage] = useState(1);
@@ -45,7 +45,7 @@ const Movies = () => {
         <div>
             <div>
                 <SortBox/>
-                <FilterBox/>
+                <FilterBox getGenre={getGenre} pageList={pageList}/>
             </div>
             {
                 pageList && pageList.results.map((item)=>{
