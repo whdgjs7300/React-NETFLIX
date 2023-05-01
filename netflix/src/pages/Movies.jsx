@@ -12,8 +12,10 @@ import FilterBox from "../components/FilterBox";
 
 const Movies = () => {
     const dispatch = useDispatch();
-    const {loading, pageList}= 
+    const {loading, pageList, }= 
     useSelector(state=>state.movie);
+    const {genreListData,} = useSelector(state=>state.filter)
+
     // 페이지 네이션 state
     const [activePage, setActivePage] = useState(1);
 
@@ -25,6 +27,9 @@ const Movies = () => {
     const getTotalMovies = () =>{
         dispatch(movieAction.getMovies(activePage));
     }
+    useEffect(()=>{
+        dispatch(movieAction.getFilter())
+    },[])
 
     // 페이지가 바뀔 때 마다 비동기 호출
     useEffect(()=>{

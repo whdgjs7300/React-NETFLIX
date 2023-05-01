@@ -2,7 +2,9 @@
 
 let initialState = {
     getGenre : {},
-
+    loading : true,
+    genreListData : {},
+    keyWord : "",
 };
 
 

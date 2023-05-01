@@ -83,13 +83,19 @@ function getDetail(id) {
 
 function getFilter() {
     return async(dispatch) => {
-        const getGenresApi = api.get(`/genre/movie/list?api_key=${API_KEY}&language=en-US&region=US`)
+        try {
+            const getGenresApi = api.get(`/genre/movie/list?api_key=${API_KEY}&language=en-US&region=US`)
 
-        let [getGenre] = await Promise.all([getGenresApi,])
+            let [getGenre] = await Promise.all([getGenresApi,])
+    
+            dispatch({type : "GET_GENRE", payload : {
+                getGenre : getGenre.data,
+            }})
+            
+        }catch {
 
-        dispatch({type : "GET_GENRE", payload : {
-            getGenre : getGenre.data,
-        }})
+        }
+        
     }
 }
 
