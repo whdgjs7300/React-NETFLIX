@@ -1,9 +1,9 @@
 import { combineReducers } from "redux";
 import movieReducer from "./movieReducer";
-import filterReducer from "./filterReducer";
+import pageReducer from "./pageReducer";
 
 
 export default combineReducers({
     movie : movieReducer,
-    filter : filterReducer
+    page : pageReducer
 });

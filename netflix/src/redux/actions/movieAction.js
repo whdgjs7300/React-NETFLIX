@@ -4,7 +4,7 @@ import {movieActions} from '../reducer/movieReducer'
 
 const API_KEY=process.env.REACT_APP_API_KEY
 
-function getMovies(activePage) {
+function getMovies() {
     // 미들웨어는 함수안에 함수를 return함
     // axios는 프론트, 백에서 둘다 쓰임(node.js에서 fetch가 쓰이지 않음)
     // API키 보호를 위해 .env 파일을 만들어 보관(중요한 정보 보호)
@@ -78,7 +78,7 @@ function getDetail(id) {
 }
 
 
-function getFilter(activePage) {
+function getPage(activePage) {
     return async(dispatch) => {
         try {
             dispatch({type: "GET_FILTER_MOVIE_REQUEST"})
@@ -86,9 +86,11 @@ function getFilter(activePage) {
             const pageApi = api.get(`/movie/popular?api_key=${API_KEY}&language=en-US&page=${activePage}`)
 
             const getGenresApi = api.get(`/genre/movie/list?api_key=${API_KEY}&language=en-US`)
+            
+            
 
-            let [getGenre,pageList] = await Promise.all(
-                [getGenresApi,pageApi])
+            let [getGenre,pageList,] = await Promise.all(
+                [getGenresApi,pageApi,])
                 
             dispatch({type : "GET_FILTER_MOVIE_SUCCESS"})
     
@@ -98,7 +100,7 @@ function getFilter(activePage) {
             dispatch({type : "GET_PAGE_MOVIES", payload : {
                 pageList : pageList.data,
             }})
-
+            
         }catch {
             dispatch({type : "GET_FILTER_MOVIE_FAILURE"})
         }
@@ -106,7 +108,29 @@ function getFilter(activePage) {
     }
 }
 
+function genreFilter(activePage,genreId) {
+    return async(dispatch) => {
+        try{
+            dispatch({type: "GET_FILTER_MOVIE_REQUEST"})
+            const fillterApi = api.get(`discover/movie?api_key=${API_KEY}&with_genres=${genreId}&page=${activePage}`)
+    
+            let [filterList] = await Promise.all(
+                [fillterApi])
+
+            dispatch({type : "GET_FILTER_MOVIE_SUCCESS"})
+
+            dispatch({type: "GET_FILTER_GENRE", payload : {
+                    pageList : filterList.data,
+                }})
+        }catch {
+            dispatch({type : "GET_FILTER_MOVIE_FAILURE"})
+        }
+    } 
+    
+    
+
+}
 
 export const movieAction = {
-    getMovies, getDetail, getFilter,
+    getMovies, getDetail, getPage, genreFilter,
 }

@@ -5,12 +5,13 @@ import { movieAction } from '../redux/actions/movieAction';
 import Dropdown from 'react-bootstrap/Dropdown';
 
 
-const FilterBox = ({getGenre, pageList}) => {
+const FilterBox = ({getGenre, pageList,activePage}) => {
     const dispatch = useDispatch();
 
-    
-
-
+    const handleButtonClick = (genreId) => {
+        dispatch(movieAction.genreFilter(activePage,genreId))
+    };
+    console.log(activePage)
     return ( 
         <Dropdown>
         <Dropdown.Toggle variant="success" id="dropdown-basic">
@@ -22,16 +23,9 @@ const FilterBox = ({getGenre, pageList}) => {
             
             
             {
-                getGenre.id && getGenre.map((item,i)=>{
-                    return <Dropdown.Item href="#/action-2">
-                        <button onClick={
-                            dispatch({type: "GET_CHANGE_FILLTER_DATA", 
-                        payload : {
-                            pageList : pageList.results.filter((pageList)=>{
-                                return item.id == pageList.genre_ids
-                            })
-                        }})
-                        } >{console.log(item)}</button>
+                getGenre && getGenre.map((item,i)=>{
+                    return <Dropdown.Item >
+                        <button onClick={()=>handleButtonClick(item.id)}>{item.name}</button>
                     </Dropdown.Item>
                     
                 })

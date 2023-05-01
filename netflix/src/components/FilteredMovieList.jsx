@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import Badge from 'react-bootstrap/Badge';
 
 const FilteredMovieList = ({item}) => {
-    const {getGenre} = useSelector(state=>state.filter);
+    const {getGenre} = useSelector(state=>state.page);
 
     console.log(getGenre)
     return ( 

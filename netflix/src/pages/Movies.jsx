@@ -14,8 +14,8 @@ import FilteredMovieList from "../components/FilteredMovieList";
 const Movies = () => {
     const dispatch = useDispatch();
     const {loading, pageList,getGenre }= 
-    useSelector(state=>state.filter);
-    console.log()
+    useSelector(state=>state.page);
+
 
     // 페이지 네이션 state
     const [activePage, setActivePage] = useState(1);
@@ -24,18 +24,20 @@ const Movies = () => {
 
     setActivePage(pageNumber);
 };
-    
+    console.log(activePage)
     const getTotalMovies = () =>{
-        dispatch(movieAction.getFilter(activePage));
+        dispatch(movieAction.getPage(activePage));
     }
-    useEffect(()=>{
-        dispatch(movieAction.getFilter())
-    },[])
+
 
     // 페이지가 바뀔 때 마다 비동기 호출
     useEffect(()=>{
         getTotalMovies()
     },[activePage])
+
+    useEffect(()=>{
+        dispatch(movieAction.genreFilter)
+    },[])
 
 
     if(loading){
@@ -45,7 +47,7 @@ const Movies = () => {
         <div>
             <div>
                 <SortBox/>
-                <FilterBox getGenre={getGenre} pageList={pageList}/>
+                <FilterBox activePage={activePage} getGenre={getGenre} pageList={pageList}/>
             </div>
             {
                 pageList && pageList.results.map((item)=>{
