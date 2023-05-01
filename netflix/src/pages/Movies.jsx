@@ -7,14 +7,15 @@ import RelatedCard from "../components/RelatedCard";
 import ClipLoader from "react-spinners/ClipLoader";
 import SortBox from "../components/SortBox";
 import FilterBox from "../components/FilterBox";
+import FilteredMovieList from "../components/FilteredMovieList";
 
 
 
 const Movies = () => {
     const dispatch = useDispatch();
     const {loading, pageList, }= 
-    useSelector(state=>state.movie);
-    const {genreListData,} = useSelector(state=>state.filter)
+    useSelector(state=>state.filter);
+    console.log(pageList)
 
     // 페이지 네이션 state
     const [activePage, setActivePage] = useState(1);
@@ -25,7 +26,7 @@ const Movies = () => {
 };
     
     const getTotalMovies = () =>{
-        dispatch(movieAction.getMovies(activePage));
+        dispatch(movieAction.getFilter(activePage));
     }
     useEffect(()=>{
         dispatch(movieAction.getFilter())
@@ -48,7 +49,7 @@ const Movies = () => {
             </div>
             {
                 pageList && pageList.results.map((item)=>{
-                    return <RelatedCard item={item}/>
+                    return <FilteredMovieList item={item}/>
                 })
             }
 

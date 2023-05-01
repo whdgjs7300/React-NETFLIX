@@ -23,16 +23,14 @@ function getMovies(activePage) {
         // 장르별 api 설정
         const genreApi = api.get(`/genre/movie/list?api_key=${API_KEY}&language=en-US`)
         
-        // 페이지별 api 설정
-        const pageApi = api.get(`/movie/popular?api_key=${API_KEY}&language=en-US&page=${activePage}`)
-            
+        
     //  let url3 = "/movie/upcoming?api_key=<<api_key>>&language=en-US&page=1"
     // 매개변수로 배열을 받음    
     // 여러가지의 api를 한번에 호출
     // await를 위에 호출할 때 쓰지않고 promise.all함수를 통해 한번에 통일시킴
     
-    let [popularMovies, topRatedMovies, upComingMovies, genreList, pageList] = 
-    await Promise.all([popularMovieApi, topRateApi, upComingApi, genreApi, pageApi])
+    let [popularMovies, topRatedMovies, upComingMovies, genreList,] = 
+    await Promise.all([popularMovieApi, topRateApi, upComingApi, genreApi, ])
     
         dispatch({
             type : "GET_MOVIES_SUCCESS",
@@ -42,7 +40,6 @@ function getMovies(activePage) {
             topRatedMovies : topRatedMovies.data,
             upComingMovies : upComingMovies.data,
             genreList : genreList.data.genres,
-            pageList : pageList.data,
             }
         })
         }catch(error){
@@ -81,19 +78,29 @@ function getDetail(id) {
 }
 
 
-function getFilter() {
+function getFilter(activePage) {
     return async(dispatch) => {
         try {
-            const getGenresApi = api.get(`/genre/movie/list?api_key=${API_KEY}&language=en-US&region=US`)
+            dispatch({type: "GET_FILTER_MOVIE_REQUEST"})
+            // 페이지별 api
+            const pageApi = api.get(`/movie/popular?api_key=${API_KEY}&language=en-US&page=${activePage}`)
 
-            let [getGenre] = await Promise.all([getGenresApi,])
+            const getGenresApi = api.get(`/genre/movie/list?api_key=${API_KEY}&language=en-US`)
+
+            let [getGenre,pageList] = await Promise.all(
+                [getGenresApi,pageApi])
+                
+            dispatch({type : "GET_FILTER_MOVIE_SUCCESS"})
     
             dispatch({type : "GET_GENRE", payload : {
-                getGenre : getGenre.data,
+                getGenre : getGenre.data.genres,
             }})
-            
-        }catch {
+            dispatch({type : "GET_PAGE_MOVIES", payload : {
+                pageList : pageList.data,
+            }})
 
+        }catch {
+            dispatch({type : "GET_FILTER_MOVIE_FAILURE"})
         }
         
     }

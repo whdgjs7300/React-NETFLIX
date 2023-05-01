@@ -23,9 +23,9 @@ const FilterBox = () => {
             
             
             {
-                getGenre && getGenre.genres.map((item,i)=>{
+                getGenre && getGenre.map((item,i)=>{
                     return <Dropdown.Item href="#/action-2">
-                        <button>{item.name}</button>
+                        <button >{item.name}</button>
                     </Dropdown.Item>
                     
                 })

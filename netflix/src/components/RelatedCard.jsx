@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 const RelatedCard = ({item}) => {
     const {genreList} = useSelector(state=>state.movie);
     
-
+    console.log(genreList)
     return (
         
         <div 
