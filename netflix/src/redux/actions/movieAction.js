@@ -78,7 +78,7 @@ function getDetail(id) {
 }
 
 
-function getPage(activePage) {
+function getPage(activePage,genreId) {
     return async(dispatch) => {
         try {
             dispatch({type: "GET_FILTER_MOVIE_REQUEST"})

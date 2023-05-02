@@ -19,25 +19,29 @@ const Movies = () => {
 
     // 페이지 네이션 state
     const [activePage, setActivePage] = useState(1);
+    const [selectedGenreId, setSelectedGenreId] = useState(null);
 
     const handlePageChange = (pageNumber) => {
 
     setActivePage(pageNumber);
 };
+// 하위 컴포넌트에서 전달받을수 있음 !!!! 이부분 수정해야함 잘 
     console.log(activePage)
-    const getTotalMovies = () =>{
-        dispatch(movieAction.getPage(activePage));
+    const getTotalMovies = (genreId) =>{
+        dispatch(movieAction.getPage(activePage,genreId));
     }
+    const handleGenreChange = (genreId) => {
 
+        setSelectedGenreId(genreId);
+        dispatch(movieAction.genreFilter(activePage,genreId))
+    };
 
     // 페이지가 바뀔 때 마다 비동기 호출
     useEffect(()=>{
         getTotalMovies()
+
     },[activePage])
 
-    useEffect(()=>{
-        dispatch(movieAction.genreFilter)
-    },[])
 
 
     if(loading){
@@ -47,7 +51,10 @@ const Movies = () => {
         <div>
             <div>
                 <SortBox/>
-                <FilterBox activePage={activePage} getGenre={getGenre} pageList={pageList}/>
+                <FilterBox 
+                activePage={activePage} getGenre={getGenre} 
+                pageList={pageList} onGenreChange={handleGenreChange}
+                />
             </div>
             {
                 pageList && pageList.results.map((item)=>{
