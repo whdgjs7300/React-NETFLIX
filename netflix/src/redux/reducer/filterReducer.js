@@ -4,6 +4,7 @@ let initialState = {
     keyWord : "",
     loading : true,
     sortBy : "",
+    withGenres: "",
     
 };
 
