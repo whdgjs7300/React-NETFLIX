@@ -108,19 +108,25 @@ function getPage(activePage,genreId) {
     }
 }
 
-function genreFilter(activePage,genreId) {
+function getFilteredMovies(withGenres) {
     return async(dispatch) => {
         try{
             dispatch({type: "GET_FILTER_MOVIE_REQUEST"})
-            const fillterApi = api.get(`discover/movie?api_key=${API_KEY}&with_genres=${genreId}&page=${activePage}`)
+            const fillterApi = api.get(`/discover/movie?api_key=${API_KEY}&language=en-US&page=1&region=US
+            ${withGenres ? `&with_genres=${withGenres}` : ""}
+            `)
     
-            let [filterList] = await Promise.all(
-                [fillterApi])
+            const withGenresApi = api.get(`/genre/movie/list?api_key=${API_KEY}&language=en-US`)
 
-            dispatch({type : "GET_FILTER_MOVIE_SUCCESS"})
+            let [filterData,withGenres] = await Promise.all(
+                [fillterApi,withGenresApi])
 
-            dispatch({type: "GET_FILTER_GENRE", payload : {
-                    pageList : filterList.data,
+            dispatch({type : "GET_FILTER_MOVIE_SUCCESS", payload : {
+                filterData : filterData.data,
+            }})
+
+            dispatch({type: "GET_GENRES_LIST", payload : {
+                withGenres : withGenres.data.genres,
                 }})
         }catch {
             dispatch({type : "GET_FILTER_MOVIE_FAILURE"})
@@ -132,5 +138,5 @@ function genreFilter(activePage,genreId) {
 }
 
 export const movieAction = {
-    getMovies, getDetail, getPage, genreFilter,
+    getMovies, getDetail, getPage, getFilteredMovies,
 }

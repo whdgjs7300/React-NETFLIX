@@ -30,10 +30,11 @@ const Movies = () => {
     const getTotalMovies = (genreId) =>{
         dispatch(movieAction.getPage(activePage,genreId));
     }
+
     const handleGenreChange = (genreId) => {
 
         setSelectedGenreId(genreId);
-        dispatch(movieAction.genreFilter(activePage,genreId))
+        dispatch(movieAction.getFilteredMovies(genreId))
     };
 
     // 페이지가 바뀔 때 마다 비동기 호출
