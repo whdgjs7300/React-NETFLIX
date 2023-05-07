@@ -10,7 +10,7 @@ let initialState = {
 };
 
 
-function pageReducer(state=initialState, action) {
+function filterReducer(state=initialState, action) {
     let {type, payload} = action
     switch(type) {
         case "GET_FILTER_MOVIE_SUCCESS" :
@@ -27,4 +27,4 @@ function pageReducer(state=initialState, action) {
     }
 }
 
-export default pageReducer;
+export default filterReducer;

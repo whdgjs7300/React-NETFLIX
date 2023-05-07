@@ -2,9 +2,9 @@ import { useSelector } from "react-redux";
 import Badge from 'react-bootstrap/Badge';
 
 const FilteredMovieList = ({item}) => {
-    const {getGenre} = useSelector(state=>state.page);
+    const {withGenres} = useSelector(state=>state.filter);
 
-    console.log(getGenre)
+    console.log(withGenres)
     return ( 
         <div 
         className="card"
@@ -21,7 +21,7 @@ const FilteredMovieList = ({item}) => {
             <h1 className="card_title">{item.title}</h1>
             <div>{item.genre_ids.map(id=><Badge bg="danger">
                 {// 장르별 id와 item의 장르 id와 같은 값을 찾음
-                getGenre && getGenre.find((item) => item.id === id).name }
+                withGenres && withGenres.find((item) => item.id === id).name }
             </Badge>)}
             
             </div>

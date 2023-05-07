@@ -13,35 +13,35 @@ import FilteredMovieList from "../components/FilteredMovieList";
 
 const Movies = () => {
     const dispatch = useDispatch();
-    const {loading, pageList,getGenre }= 
-    useSelector(state=>state.page);
+    const {loading,filterData ,withGenres}= 
+    useSelector(state=>state.filter);
 
-
+    console.log(filterData)
     // 페이지 네이션 state
-    const [activePage, setActivePage] = useState(1);
+    const [pageNum, setPageNum] = useState(1);
     const [selectedGenreId, setSelectedGenreId] = useState(null);
 
-    const handlePageChange = (pageNumber) => {
+    const handlePageChange = (pageNum) => {
 
-    setActivePage(pageNumber);
+    setPageNum(pageNum)
 };
 // 하위 컴포넌트에서 전달받을수 있음 !!!! 이부분 수정해야함 잘 
-    console.log(activePage)
-    const getTotalMovies = (genreId) =>{
-        dispatch(movieAction.getPage(activePage,genreId));
+    console.log(pageNum)
+    const getTotalMovies = (withGenres) =>{
+        dispatch(movieAction.getFilteredMovies(withGenres));
     }
+   
+    const handleGenreChange = (withGenres) => {
 
-    const handleGenreChange = (genreId) => {
-
-        setSelectedGenreId(genreId);
-        dispatch(movieAction.getFilteredMovies(genreId))
+        setSelectedGenreId(withGenres);
+        dispatch(movieAction.getFilteredMovies(withGenres))
     };
 
     // 페이지가 바뀔 때 마다 비동기 호출
     useEffect(()=>{
         getTotalMovies()
 
-    },[activePage])
+    },[pageNum])
 
 
 
@@ -53,18 +53,17 @@ const Movies = () => {
             <div>
                 <SortBox/>
                 <FilterBox 
-                activePage={activePage} getGenre={getGenre} 
-                pageList={pageList} onGenreChange={handleGenreChange}
-                />
+                pageNum={pageNum} withGenres={withGenres} 
+                filterData={filterData} onGenreChange={handleGenreChange}/>
             </div>
             {
-                pageList && pageList.results.map((item)=>{
+                filterData && filterData.results.map((item)=>{
                     return <FilteredMovieList item={item}/>
                 })
             }
 
 <Pagination
-    activePage={activePage}
+    activePage={pageNum}
     itemsCountPerPage={20}
     totalItemsCount={2000}
     pageRangeDisplayed={5}

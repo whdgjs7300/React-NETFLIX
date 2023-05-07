@@ -5,11 +5,11 @@ import { movieAction } from '../redux/actions/movieAction';
 import Dropdown from 'react-bootstrap/Dropdown';
 
 
-const FilterBox = ({getGenre, pageList,activePage, onGenreChange}) => {
+const FilterBox = ({withGenres, pageList,pageNum, onGenreChange}) => {
     const dispatch = useDispatch();
 
 
-    console.log(activePage)
+    console.log(pageNum)
     return ( 
         <Dropdown>
         <Dropdown.Toggle variant="success" id="dropdown-basic">
@@ -21,7 +21,7 @@ const FilterBox = ({getGenre, pageList,activePage, onGenreChange}) => {
             
             
             {
-                getGenre && getGenre.map((item,i)=>{
+                withGenres && withGenres.map((item,i)=>{
                     return <Dropdown.Item >
                         <button onClick={()=>onGenreChange(item.id)}>{item.name}</button>
                     </Dropdown.Item>
