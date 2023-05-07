@@ -13,10 +13,11 @@ import FilteredMovieList from "../components/FilteredMovieList";
 
 const Movies = () => {
     const dispatch = useDispatch();
-    const {loading,filterData ,withGenres}= 
+    const {loading,filterData ,withGenres, keyWord}= 
     useSelector(state=>state.filter);
-
     console.log(filterData)
+
+    console.log(keyWord)
     // 페이지 네이션 state
     const [pageNum, setPageNum] = useState(1);
     const [selectedGenreId, setSelectedGenreId] = useState(null);
@@ -27,21 +28,21 @@ const Movies = () => {
 };
 // 하위 컴포넌트에서 전달받을수 있음 !!!! 이부분 수정해야함 잘 
     console.log(pageNum)
-    const getTotalMovies = (withGenres) =>{
-        dispatch(movieAction.getFilteredMovies(withGenres));
+    const getTotalMovies = () =>{
+        dispatch(movieAction.getFilteredMovies());
     }
-   
-    const handleGenreChange = (withGenres) => {
+    
+    const handleGenreChange = (withGenresID) => {
 
-        setSelectedGenreId(withGenres);
-        dispatch(movieAction.getFilteredMovies(withGenres))
+        setSelectedGenreId(withGenresID);
+        dispatch(movieAction.getFilteredMovies(withGenresID))
     };
 
     // 페이지가 바뀔 때 마다 비동기 호출
     useEffect(()=>{
         getTotalMovies()
 
-    },[pageNum])
+    },[])
 
 
 
@@ -54,7 +55,7 @@ const Movies = () => {
                 <SortBox/>
                 <FilterBox 
                 pageNum={pageNum} withGenres={withGenres} 
-                filterData={filterData} onGenreChange={handleGenreChange}/>
+                onGenreChange={handleGenreChange}/>
             </div>
             {
                 filterData && filterData.results.map((item)=>{

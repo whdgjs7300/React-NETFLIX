@@ -14,13 +14,14 @@ function filterReducer(state=initialState, action) {
     let {type, payload} = action
     switch(type) {
         case "GET_FILTER_MOVIE_SUCCESS" :
-            return {...state, loading : false, filterData : payload.filterData}
-        case "GET_GENRES_LIST" :
-            return {...state, withGenres : payload.withGenres}
+            return {...state, loading : false, filterData : payload.filterData, 
+                withGenres : payload.withGenres}
         case "GET_FILTER_MOVIE_REQUEST" :
             return {...state, loading : true}        
         case "GET_FILTER_MOVIE_FAILURE" : 
             return {...state, loading : false}     
+        case "GET_KEYWORD" : 
+            return {...state, keyWord : payload.keyWord}
         
         default :
             return {...state};    

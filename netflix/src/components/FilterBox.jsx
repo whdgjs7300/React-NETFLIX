@@ -9,7 +9,7 @@ const FilterBox = ({withGenres, pageList,pageNum, onGenreChange}) => {
     const dispatch = useDispatch();
 
 
-    console.log(pageNum)
+  
     return ( 
         <Dropdown>
         <Dropdown.Toggle variant="success" id="dropdown-basic">

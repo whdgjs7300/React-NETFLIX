@@ -108,11 +108,14 @@ function getPage(activePage,genreId) {
     }
 }
 
-function getFilteredMovies() {
+function getFilteredMovies(withGenresID) {
     return async(dispatch) => {
         try{
             dispatch({type: "GET_FILTER_MOVIE_REQUEST"})
-            const fillterApi = api.get(`/discover/movie?api_key=${API_KEY}&language=en-US&page=1&region=US
+            const fillterApi = api.get(
+                `/discover/movie?api_key=${API_KEY}&language=en-US&page=1&region=US${
+                    withGenresID ? `&with_genres=${withGenresID}` : ""
+                }
             
             `)
     
@@ -123,11 +126,10 @@ function getFilteredMovies() {
 
             dispatch({type : "GET_FILTER_MOVIE_SUCCESS", payload : {
                 filterData : filterData.data,
+                withGenres : withGenres.data.genres,
             }})
             // 로딩 빠져있긴함
-            dispatch({type: "GET_GENRES_LIST", payload : {
-                withGenres : withGenres.data.genres,
-                }})
+            
         }catch {
             dispatch({type : "GET_FILTER_MOVIE_FAILURE"})
         }

@@ -3,10 +3,29 @@ import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { Link } from 'react-router-dom';
-
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector, } from 'react-redux';
+import { movieAction } from '../redux/actions/movieAction';
 
 const Navigation = () => {
+    let navigate = useNavigate();
+    const {loading,filterData ,withGenres,keyWord}= 
+    useSelector(state=>state.filter);
+    const dispatch = useDispatch();
+
+    
+
+    const search = (e) => {
+        if(e.key === "Enter"){
+            e.preventDefault();
+            navigate(`movies`);
+            dispatch({type : "GET_KEYWORD", payload : {keyWord}})
+            console.log(keyWord)
+            // url을 바꿔준다
+            
+        }
+    }
+
 
     return (  
         <Navbar bg="dark" variant='dark' expand="lg">
@@ -27,14 +46,15 @@ const Navigation = () => {
                     <Link to='movies' className="nav-item">Movies</Link>
 
                 </Nav>
-                <Form className="d-flex">
+                <Form onSubmit={(e)=>search(e)} className="d-flex">
                     <Form.Control
                     type="search"
                     placeholder="Search"
                     className="me-2"
                     aria-label="Search"
+                    onChange={(e) => dispatch({type: "GET_KEYWORD", payload: {keyWord: e.target.value}})}
                     />
-                    <Button variant="outline-danger">Search</Button>
+                    <Button type='submit' variant="outline-danger">Search</Button>
                 </Form>
                 </Navbar.Collapse>
             </Container>
