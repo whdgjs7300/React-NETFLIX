@@ -5,13 +5,14 @@ import { useParams } from "react-router-dom";
 import DetailCard from "../components/DetailCard";
 import RelatedCard from "../components/RelatedCard";
 import Review from "../components/Review";
+import ClipLoader from "react-spinners/ClipLoader";
 import { movieAction } from "../redux/actions/movieAction";
 
 const MovieDetail = () => {
     const {id} = useParams();
     const dispatch = useDispatch();
     const [modalOn, setModalOn] = useState(false);
-    const {detailList, reviewList, recommendList, videoList} = useSelector(state=>state.movie)
+    const {detailList, reviewList, recommendList, loading} = useSelector(state=>state.movie)
     const getMoviesDetail= () => {
         dispatch(movieAction.getDetail(id));
     }
@@ -25,7 +26,10 @@ const MovieDetail = () => {
 
 
 
-    console.log(recommendList)
+    
+    if(loading){
+        return <ClipLoader color="#ffff" loading={loading} size={150}/>
+    }
     return ( 
         <div>
             <div>

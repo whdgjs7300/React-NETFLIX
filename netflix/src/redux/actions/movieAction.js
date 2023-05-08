@@ -55,32 +55,39 @@ function getMovies() {
 
 function getDetail(id) {
     return async(dispatch)=> {
- // id별 api 설정
-    const detailApi = api.get(`/movie/${id}?api_key=${API_KEY}&language=en-US`);
-//  Review별 api 설정
-    const reviewApi = api.get(`/movie/${id}/reviews?api_key=${API_KEY}&language=en-US&page=1`)
-//  추천영화 api
-    const recommendApi = api.get(`/movie/${id}/recommendations?api_key=${API_KEY}&language=en-US&page=1`)
-//  예고편 api
-    const videoApi = api.get(`/movie/${id}/videos?api_key=${API_KEY}&language=en-US`)
-    let [detailList,reviewList, recommendList, videoList] =
-    await Promise.all([detailApi, reviewApi, recommendApi, videoApi])
-    
-    dispatch({type : "GET_DETAIL_MOVIES", payload:
-    {
-    detailList : detailList.data, 
-    reviewList : reviewList.data,
-    recommendList : recommendList.data,
-    videoList : videoList.data,
-    }})
+        try {
+        dispatch({type:"GET_MOVIES_REQUEST"})
+     // id별 api 설정
+        const detailApi = api.get(`/movie/${id}?api_key=${API_KEY}&language=en-US`);
+    //  Review별 api 설정
+        const reviewApi = api.get(`/movie/${id}/reviews?api_key=${API_KEY}&language=en-US&page=1`)
+    //  추천영화 api
+        const recommendApi = api.get(`/movie/${id}/recommendations?api_key=${API_KEY}&language=en-US&page=1`)
+    //  예고편 api
+        const videoApi = api.get(`/movie/${id}/videos?api_key=${API_KEY}&language=en-US`)
+        let [detailList,reviewList, recommendList, videoList] =
+        await Promise.all([detailApi, reviewApi, recommendApi, videoApi])
+        
+        dispatch({type : "GET_DETAIL_MOVIES", payload:
+        {
+        detailList : detailList.data, 
+        reviewList : reviewList.data,
+        recommendList : recommendList.data,
+        videoList : videoList.data,
+        }})
+        }catch(error) {
+        // 에러핸들링하는곳
+        dispatch({type: "GET_MOVIES_FAILURE"})
+        }
+
 
     }
 
 }
 
+// movie  페이지별
 
-
-function getFilteredMovies(withGenresID,sortBy,pageNum) {
+function getFilteredMovies(withGenresID,sortBy,pageNum,keyWord) {
     return async(dispatch) => {
         try{
             dispatch({type: "GET_FILTER_MOVIE_REQUEST"})
@@ -92,6 +99,8 @@ function getFilteredMovies(withGenresID,sortBy,pageNum) {
                     sortBy ? `&sort_by=${sortBy}` : "&sort_by=popularity.desc"
                 }${// 페이지 별
                     pageNum ? `&page=${pageNum}` : "&page=1"
+                }${// 검색 keyWord 별
+                    keyWord ? `&with_text_query=${keyWord}` : ""
                 }
             
             `)

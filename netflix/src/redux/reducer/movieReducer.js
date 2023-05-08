@@ -29,7 +29,8 @@ function movieReducer(state=initialState, action) {
             return {...state, detailList : payload.detailList,
                             reviewList : payload.reviewList,
                             recommendList : payload.recommendList, 
-                            videoList : payload.videoList,   
+                            videoList : payload.videoList,
+                            loading : false,
                         }
         case "GET_MOVIES_REQUEST" :
             return {...state, loading : true}

@@ -14,7 +14,7 @@ const Movies = () => {
     const dispatch = useDispatch();
     const {loading,filterData ,withGenres, keyWord, sortBy}= 
     useSelector(state=>state.filter);
-    console.log(sortBy)
+    
 
     
     // 페이지 네이션 state
@@ -29,20 +29,20 @@ const Movies = () => {
 
     console.log(pageNum)
     const getTotalMovies = () =>{
-        dispatch(movieAction.getFilteredMovies(selectedGenreId,sortBy,pageNum));
+        dispatch(movieAction.getFilteredMovies(selectedGenreId,sortBy,pageNum,keyWord));
     }
     
     const handleGenreChange = (withGenresID) => {
 
         setSelectedGenreId(withGenresID);
-        dispatch(movieAction.getFilteredMovies(withGenresID,sortBy,pageNum))
+        dispatch(movieAction.getFilteredMovies(withGenresID,sortBy,pageNum,keyWord))
     };
 
     // 페이지, 장르id, sortBy가 바뀔 때 마다 비동기 호출
     useEffect(()=>{
         getTotalMovies()
 
-    },[pageNum,sortBy,selectedGenreId])
+    },[pageNum,sortBy,selectedGenreId,keyWord])
 
 
 

@@ -11,9 +11,6 @@ const DetailCard = ({detailList}) => {
 
     
 
-    console.log(detailList)
-    
-
     return ( 
         <div>
             {

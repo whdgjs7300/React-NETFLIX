@@ -6,7 +6,7 @@ import YouTube, { YouTubeProps } from 'react-youtube';
 const Modals = ({setModal}) => {
 
     const {videoList, detailList} = useSelector(state=> state.movie)
-    console.log(videoList)
+
 
     const onPlayerReady: YouTubeProps['onReady'] = (event) => {
         // access to player in all event handlers via event.target
