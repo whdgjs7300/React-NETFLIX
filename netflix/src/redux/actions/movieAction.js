@@ -108,13 +108,16 @@ function getPage(activePage,genreId) {
     }
 }
 
-function getFilteredMovies(withGenresID) {
+function getFilteredMovies(withGenresID,sortBy) {
     return async(dispatch) => {
         try{
             dispatch({type: "GET_FILTER_MOVIE_REQUEST"})
             const fillterApi = api.get(
                 `/discover/movie?api_key=${API_KEY}&language=en-US&page=1&region=US${
+                    // 장르 id값이 있거나 없을 때
                     withGenresID ? `&with_genres=${withGenresID}` : ""
+                }${// 정렬 값이 있거나 없을 때
+                    sortBy ? `&sort_by=${sortBy}` : "&sort_by=popularity.desc"
                 }
             
             `)
