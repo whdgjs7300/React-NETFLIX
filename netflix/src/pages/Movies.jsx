@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { movieAction } from "../redux/actions/movieAction";
 import Pagination from "react-js-pagination";
 import { useState } from "react";
-import RelatedCard from "../components/RelatedCard";
 import ClipLoader from "react-spinners/ClipLoader";
 import SortBox from "../components/SortBox";
 import FilterBox from "../components/FilterBox";
@@ -13,36 +12,37 @@ import FilteredMovieList from "../components/FilteredMovieList";
 
 const Movies = () => {
     const dispatch = useDispatch();
-    const {loading,filterData ,withGenres, keyWord}= 
+    const {loading,filterData ,withGenres, keyWord, sortBy}= 
     useSelector(state=>state.filter);
-    console.log(filterData)
+    console.log(sortBy)
 
-    console.log(keyWord)
+    
     // 페이지 네이션 state
     const [pageNum, setPageNum] = useState(1);
+    // 선택 장르 id
     const [selectedGenreId, setSelectedGenreId] = useState(null);
 
     const handlePageChange = (pageNum) => {
 
     setPageNum(pageNum)
 };
-// 하위 컴포넌트에서 전달받을수 있음 !!!! 이부분 수정해야함 잘 
+
     console.log(pageNum)
     const getTotalMovies = () =>{
-        dispatch(movieAction.getFilteredMovies());
+        dispatch(movieAction.getFilteredMovies(selectedGenreId,sortBy,pageNum));
     }
     
     const handleGenreChange = (withGenresID) => {
 
         setSelectedGenreId(withGenresID);
-        dispatch(movieAction.getFilteredMovies(withGenresID))
+        dispatch(movieAction.getFilteredMovies(withGenresID,sortBy,pageNum))
     };
 
-    // 페이지가 바뀔 때 마다 비동기 호출
+    // 페이지, 장르id, sortBy가 바뀔 때 마다 비동기 호출
     useEffect(()=>{
         getTotalMovies()
 
-    },[])
+    },[pageNum,sortBy,selectedGenreId])
 
 
 
@@ -66,7 +66,7 @@ const Movies = () => {
 <Pagination
     activePage={pageNum}
     itemsCountPerPage={20}
-    totalItemsCount={2000}
+    totalItemsCount={filterData ? filterData.total_results : 0} 
     pageRangeDisplayed={5}
     onChange={handlePageChange}
     itemClass="page-item"

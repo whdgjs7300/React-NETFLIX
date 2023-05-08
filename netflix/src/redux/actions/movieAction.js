@@ -4,6 +4,7 @@ import {movieActions} from '../reducer/movieReducer'
 
 const API_KEY=process.env.REACT_APP_API_KEY
 
+// 홈페이지 별
 function getMovies() {
     // 미들웨어는 함수안에 함수를 return함
     // axios는 프론트, 백에서 둘다 쓰임(node.js에서 fetch가 쓰이지 않음)
@@ -50,7 +51,7 @@ function getMovies() {
     }
     
 }
-
+// 디테일 페이지 별
 
 function getDetail(id) {
     return async(dispatch)=> {
@@ -78,37 +79,8 @@ function getDetail(id) {
 }
 
 
-function getPage(activePage,genreId) {
-    return async(dispatch) => {
-        try {
-            dispatch({type: "GET_FILTER_MOVIE_REQUEST"})
-            // 페이지별 api
-            const pageApi = api.get(`/movie/popular?api_key=${API_KEY}&language=en-US&page=${activePage}`)
 
-            const getGenresApi = api.get(`/genre/movie/list?api_key=${API_KEY}&language=en-US`)
-            
-            
-
-            let [getGenre,pageList,] = await Promise.all(
-                [getGenresApi,pageApi,])
-                
-            dispatch({type : "GET_FILTER_MOVIE_SUCCESS"})
-    
-            dispatch({type : "GET_GENRE", payload : {
-                getGenre : getGenre.data.genres,
-            }})
-            dispatch({type : "GET_PAGE_MOVIES", payload : {
-                pageList : pageList.data,
-            }})
-            
-        }catch {
-            dispatch({type : "GET_FILTER_MOVIE_FAILURE"})
-        }
-        
-    }
-}
-
-function getFilteredMovies(withGenresID,sortBy) {
+function getFilteredMovies(withGenresID,sortBy,pageNum) {
     return async(dispatch) => {
         try{
             dispatch({type: "GET_FILTER_MOVIE_REQUEST"})
@@ -118,6 +90,8 @@ function getFilteredMovies(withGenresID,sortBy) {
                     withGenresID ? `&with_genres=${withGenresID}` : ""
                 }${// 정렬 값이 있거나 없을 때
                     sortBy ? `&sort_by=${sortBy}` : "&sort_by=popularity.desc"
+                }${// 페이지 별
+                    pageNum ? `&page=${pageNum}` : "&page=1"
                 }
             
             `)
@@ -131,7 +105,6 @@ function getFilteredMovies(withGenresID,sortBy) {
                 filterData : filterData.data,
                 withGenres : withGenres.data.genres,
             }})
-            // 로딩 빠져있긴함
             
         }catch {
             dispatch({type : "GET_FILTER_MOVIE_FAILURE"})

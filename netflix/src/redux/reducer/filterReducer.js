@@ -22,7 +22,9 @@ function filterReducer(state=initialState, action) {
             return {...state, loading : false}     
         case "GET_KEYWORD" : 
             return {...state, keyWord : payload.keyWord}
-        
+        case "SET_SORT_BY" :
+            return {...state, sortBy : payload,
+            };
         default :
             return {...state};    
     }
