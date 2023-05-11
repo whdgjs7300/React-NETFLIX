@@ -27,7 +27,7 @@ const Movies = () => {
     setPageNum(pageNum)
 };
 
-    console.log(pageNum)
+    
     const getTotalMovies = () =>{
         dispatch(movieAction.getFilteredMovies(selectedGenreId,sortBy,pageNum,keyWord));
     }
@@ -38,7 +38,7 @@ const Movies = () => {
         dispatch(movieAction.getFilteredMovies(withGenresID,sortBy,pageNum,keyWord))
     };
 
-    // 페이지, 장르id, sortBy가 바뀔 때 마다 비동기 호출
+    // 페이지, 장르id, sortBy, 검색키워드가 바뀔 때 마다 비동기 호출
     useEffect(()=>{
         getTotalMovies()
 

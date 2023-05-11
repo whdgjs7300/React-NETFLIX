@@ -25,7 +25,7 @@ const Navigation = () => {
     return (  
         <Navbar bg="dark" variant='dark' expand="lg">
             <Container fluid>
-                <Navbar.Brand href="#">
+                <Navbar.Brand onClick={()=>navigate('/')} href="#">
                     <img src="https://www.edigitalagency.com.au/wp-content/uploads/Netflix-logo-red-black-png.png"
                     width={100}
                     alt="" />
