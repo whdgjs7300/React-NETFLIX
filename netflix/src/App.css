@@ -42,6 +42,16 @@
   opacity: 1;
   
 }
+
+/* 디테일  */
+.title_Box{
+  display: flex;
+  height: 400px;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
 .review_Box{
   margin: auto;
   padding-left: 12px;

@@ -32,9 +32,9 @@ const MovieDetail = () => {
     }
     return ( 
         <div>
-            <div>
+            <div className="title_Box">
                 <h1>NETFLIX</h1>
-                <div>
+                <div >
                     <span>{detailList?.title}</span>
                 </div>
             </div>
