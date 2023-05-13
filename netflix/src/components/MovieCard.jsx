@@ -11,13 +11,9 @@ const MovieCard = ({item}) => {
     return (
         
         <div onClick={()=>navigate(`movies/${item.id}`)}
-        className="card"
+        className="movieCard"
         style={{backgroundImage:
         'url('+`${imageUrl}`+')', 
-        width:300, height:200,
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover"
         }}>
 
 

@@ -25,7 +25,7 @@ const Home = () => {
         return <ClipLoader color="#ffff" loading={loading} size={150}/>
     }
     return ( 
-        <div>
+        <div >
             <Banner movie={popularMovies.results[0]}/>
             <h1>popular Movie</h1>
             <MovieSlide movies={popularMovies}/>

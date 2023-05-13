@@ -39,14 +39,21 @@ const MovieDetail = () => {
                 </div>
             </div>
                 
-                <div className="detail_Box" style={
+            <div className="detail_Box">
+                <div className="detail_img"
+                style={
             {
                 backgroundImage:
         'url('+`https://www.themoviedb.org/t/p/w300_and_h450_bestv2${detailList.poster_path}`+')',
             }
         }>
-                <DetailCard detailList={detailList}/>
                 </div>
+                <div className="detail_info">
+                    <DetailCard detailList={detailList}/>
+                </div>
+                
+            </div>
+            
                 
                 
                 {reviewList && <div>
