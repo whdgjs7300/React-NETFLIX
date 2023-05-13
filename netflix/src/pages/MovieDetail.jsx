@@ -65,18 +65,32 @@ const MovieDetail = () => {
                     }}>RELATED MOVIES</button>
                     </div> }
                 
-                <div className="review_Box">
+                
                 {   modalOn == false ? 
-                    reviewList && reviewList.results.map((item)=>{
-                        return <Review reviewList={item}/>
-                    })
-                    :
-                    recommendList && recommendList.results.map((item)=>{
-                        return <RelatedCard item={item} />
-                    })
+                    <div className="review_Container">
+                        {
+                        reviewList && reviewList.results.map((item)=>{
+                        return <div className="review_Box">
+                        <Review reviewList={item}/>
+                        </div> 
+})
+                        }
+                    </div>
+                    
+                    : <div className="related_Card">{
+                        recommendList && recommendList.results.map((item)=>{
+                            return <div className="related_CardBox">
+                                <RelatedCard item={item} />
+                            </div> 
+                            
+                        })
+                        }</div>
+                    
                     
                 }
-                </div>
+                
+                
+                
                 
                 
             

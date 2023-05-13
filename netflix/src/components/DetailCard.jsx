@@ -16,31 +16,37 @@ const DetailCard = ({detailList}) => {
             {
                 modal ? <Modals setModal={setModal}/> : null
             }
-            <div>
-
-            </div>
+            
 
             <div>
                 {
                     detailList.genres && detailList.genres.map((item)=>
+                    <div className="badge">
                     <Badge bg="danger" >
-                        {item.name}
+                        <p>{item.name}</p>
                     </Badge>
+                    </div>
+                    
                     )
                 }
+                <hr />
+                <h1 className="title">{detailList.title}</h1>
+                <hr />
                 
-                <h1>{detailList.title}</h1>
-                <p>{detailList.popularity}</p>
-                <div>
+                <div className="card_Info">
+                    <span>{detailList.popularity}</span>
                     <span>{detailList.vote_average}</span>
                     <span>{
                         detailList.adult == false ? "under 18" : "청불"
                         }</span>
                 </div>
-                <p>{detailList.overview}</p>
+                <hr />
+                <p className="P_tag">{detailList.overview}</p>
+                <hr />
                 <div>
                     <p>예산</p>
                     <p>{detailList.release_date}</p>
+                    <hr />
                     <button onClick={()=>{
                         setModal(true);
                     }} >예고편 보기</button>

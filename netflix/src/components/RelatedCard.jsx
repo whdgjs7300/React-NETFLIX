@@ -12,7 +12,6 @@ const RelatedCard = ({item}) => {
     return (
         
         <div 
-        className="card"
         style={{backgroundImage:
         'url('+`${imageUrl}`+')', 
         width:300, height:200,
