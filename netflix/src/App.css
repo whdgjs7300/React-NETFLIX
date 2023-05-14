@@ -174,7 +174,27 @@
 /* ------------------------moviePage------------------------ */
 
 
-.Movie_container {
+
+.Movie_firstBox {
+  margin-top: 20px;
+  margin-left: 50px;
+  margin-right: 50px;
   display: flex;
-  flex-wrap: wrap;
+  justify-content: space-between;
+  
 }
+.Movie_filterBox{
+  flex-basis: 50%;
+  
+}
+.Movie_DataBox{
+  flex-basis: 50%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+
+
+
+

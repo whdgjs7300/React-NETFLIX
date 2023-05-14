@@ -6,17 +6,20 @@ import Dropdown from 'react-bootstrap/Dropdown';
 
 
 const FilterBox = ({withGenres, pageList,pageNum, onGenreChange}) => {
-    const dispatch = useDispatch();
 
 
-  
+
     return ( 
         <Dropdown>
-        <Dropdown.Toggle variant="success" id="dropdown-basic">
+        <Dropdown.Toggle style={{width:250, height:50}}
+                variant="danger" id="dropdown-basic">
             Filter
         </Dropdown.Toggle>
 
-        <Dropdown.Menu>
+        <Dropdown.Menu variant="dark"
+            style={{width:250,height:900,
+            textAlign:"center",
+            }}>
             <h3>Genres</h3>
             
             

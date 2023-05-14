@@ -54,6 +54,7 @@ const Movies = () => {
             <div className="Movie_firstBox">
                 <div className="Movie_filterBox">
                     <SortBox/>
+                    <br />
                     <FilterBox 
                     pageNum={pageNum} withGenres={withGenres} 
                     onGenreChange={handleGenreChange}/>
@@ -68,7 +69,7 @@ const Movies = () => {
             
             </div>
             
-<div>
+<div className="Pagination_Box">
 <Pagination
     activePage={pageNum}
     itemsCountPerPage={20}

@@ -8,12 +8,18 @@ const SortBox = () => {
     const { sortBy } = useSelector((state) => state.filter);
 
     return ( 
-        <Dropdown>
-            <Dropdown.Toggle variant="success" id="dropdown-basic">
+        <Dropdown autoClose='true' >
+            <Dropdown.Toggle
+                style={{width:250, height:50}}
+                variant="danger" id="dropdown-basic">
                 Sort
             </Dropdown.Toggle>
-            <Dropdown.Menu>
-                <h3>Sort Results By</h3>
+            <Dropdown.Menu variant="dark"
+            style={{width:250,height:250,
+            textAlign:"center",
+            }}>
+                <h3 style={{margin:"auto"}}>Sort Results By</h3>
+                <hr />
                 <Dropdown.Item 
                 onClick={() => dispatch({type: "SET_SORT_BY", payload : "popularity.desc"})}
                 active={sortBy === "popularity.desc"}
