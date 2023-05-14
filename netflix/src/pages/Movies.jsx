@@ -50,19 +50,25 @@ const Movies = () => {
         return <ClipLoader color="#ffff" loading={loading} size={150}/>
     }
     return ( 
-        <div>
-            <div>
-                <SortBox/>
-                <FilterBox 
-                pageNum={pageNum} withGenres={withGenres} 
-                onGenreChange={handleGenreChange}/>
+        <div className="Movie_container">
+            <div className="Movie_firstBox">
+                <div className="Movie_filterBox">
+                    <SortBox/>
+                    <FilterBox 
+                    pageNum={pageNum} withGenres={withGenres} 
+                    onGenreChange={handleGenreChange}/>
+                </div>
+                <div className="Movie_DataBox">
+                    {
+                    filterData && filterData.results.map((item)=>{
+                        return <FilteredMovieList item={item}/>
+                    })
+                    }
+                </div>
+            
             </div>
-            {
-                filterData && filterData.results.map((item)=>{
-                    return <FilteredMovieList item={item}/>
-                })
-            }
-
+            
+<div>
 <Pagination
     activePage={pageNum}
     itemsCountPerPage={20}
@@ -72,6 +78,8 @@ const Movies = () => {
     itemClass="page-item"
     linkClass="page-link"
 />
+</div>
+
 
 </div>
     );

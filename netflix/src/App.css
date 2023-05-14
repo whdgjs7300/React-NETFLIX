@@ -169,3 +169,12 @@
   margin-left: 20px;
   margin-right: 100px;
 }
+
+
+/* ------------------------moviePage------------------------ */
+
+
+.Movie_container {
+  display: flex;
+  flex-wrap: wrap;
+}
