@@ -12,7 +12,7 @@ const MovieDetail = () => {
     const {id} = useParams();
     const dispatch = useDispatch();
     const [modalOn, setModalOn] = useState(false);
-    const {detailList, reviewList, recommendList, loading} = useSelector(state=>state.movie)
+    const {detailList, reviewList, recommendList, loading,genreList} = useSelector(state=>state.movie)
     const getMoviesDetail= () => {
         dispatch(movieAction.getDetail(id));
     }
@@ -24,17 +24,15 @@ const MovieDetail = () => {
         dispatch(movieAction.getMovies())
     },[modalOn])
 
-
+    
 
     
-    if(loading){
-        return <ClipLoader color="#ffff" loading={loading} size={150}/>
-    }
+    
     return ( 
-        <div>
+        <div style={{color:"white"}}>
             <div className="title_Box">
-                <h1>NETFLIX</h1>
-                <div >
+                <h1 style={{fontSize:"100px"}}>NETFLIX</h1>
+                <div  >
                     <span>{detailList?.title}</span>
                 </div>
             </div>
@@ -56,13 +54,13 @@ const MovieDetail = () => {
             
                 
                 
-                {reviewList && <div>
-                    <button onClick={()=>{
+                {reviewList && <div className="review_btnBox">
+                    <button  onClick={()=>{
                         setModalOn(false);
                     }}>REVIEWS ({reviewList.results.length})</button>
                     <button onClick={()=>{
                         setModalOn(true);
-                    }}>RELATED MOVIES</button>
+                    }}>RELATED MOVIES ({recommendList.results.length})</button>
                     </div> }
                 
                 

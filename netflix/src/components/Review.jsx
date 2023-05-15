@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 
 const Review = ({reviewList}) => {
 
-    console.log(reviewList)
+    
     
     
     return ( 

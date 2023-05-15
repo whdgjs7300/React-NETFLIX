@@ -116,10 +116,22 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  color: white;
+}
+.title_Box div {
+  margin-top: 20px;
+  background-color: white;
+  padding: 20px;
+}
+
+
+.title_Box span {
+  color: black;
+  
 }
 
 .review_Container{
-  border: 4px solid black;
+  border: 4px solid white;
   margin: 10px 100px;
   
 }
@@ -129,9 +141,23 @@
   padding-left: 12px;
   padding-top: 12px;
   
-  
+}
+.review_btnBox {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 30px;
+  margin-bottom: 30px;
   
 }
+.review_btnBox button {
+  background-color: white;
+  padding: 20px 30px;
+}
+.review_btnBox_button2 {
+  color: white;
+  background-color: #DC3545;
+}
+
 
 .related_Card {
   margin-top: 20px;
