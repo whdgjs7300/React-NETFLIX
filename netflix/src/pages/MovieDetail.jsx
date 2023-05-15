@@ -43,7 +43,10 @@ const MovieDetail = () => {
             {
                 backgroundImage:
         'url('+`https://www.themoviedb.org/t/p/w300_and_h450_bestv2${detailList.poster_path}`+')',
-            }
+                backgroundPosition:"center", 
+                backgroundRepeat:"no-repeat",
+                backgroundSize : "contain"
+    }
         }>
                 </div>
                 <div className="detail_info">

@@ -47,7 +47,8 @@ const DetailCard = ({detailList}) => {
                     <p>예산</p>
                     <p>{detailList.release_date}</p>
                     <hr />
-                    <button onClick={()=>{
+                    <button
+                    onClick={()=>{
                         setModal(true);
                     }} >예고편 보기</button>
                 </div>

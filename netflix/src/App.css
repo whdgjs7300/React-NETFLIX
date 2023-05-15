@@ -1,3 +1,11 @@
+
+button {
+  color: white;
+  background-color: #DC3545;
+  font-weight: 500;
+  padding: 12px 16px;
+}
+
 .container {
   background-color: black;
   
@@ -46,24 +54,23 @@
 
 .movieCard {
   z-index: 1;
-  position: relative;
   width: 200px;
   height: 300px;
   background-size: cover;
-  background-position: 50%;
+  background-position: center;
+  background-repeat: no-repeat;
   cursor: pointer;
   border-radius: 10px;
-  transform-origin: bottom;
-  transition: 0.3s;
+  margin: auto;
+  
 }
-
 .movieCard:hover {
   z-index: 3;
-  transform: scale(1.4);
+  transform: scale(1.5);
   transition: 0.5s;
   
-  
 }
+
 .badge {
   display: flex;
   align-items: center;
@@ -97,17 +104,28 @@
   color: white;
   
 }
+.card_title h1 {
+  text-align: center;
+  font-size: xx-large;
+}
+
 .overlay {
+  text-align: center;
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-start;
+  justify-content: space-evenly;
   color: white;
+  width: 100%;
   height: 100%;
   background: rgba(43, 41, 41, 0.9);
   align-items: center;
+  opacity: 0;
+}
+.overlay:hover {
+  opacity: 1;
+  
   
 }
-
 
 /* 디테일  */
 .title_Box{
@@ -150,10 +168,12 @@
   
 }
 .review_btnBox button {
-  background-color: white;
   padding: 20px 30px;
+  color: black;
+  background-color: white;
 }
-.review_btnBox_button2 {
+.review_btnBox button:focus,
+.review_btnBox button:active {
   color: white;
   background-color: #DC3545;
 }
@@ -161,15 +181,15 @@
 
 .related_Card {
   margin-top: 20px;
-  margin-left: 50px;
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-around;
+
   
-  align-items: flex-start;
 }
 
 .related_CardBox{
-  margin: 10px 50px;
+  margin: 30px 40px;
   
 }
 
@@ -179,16 +199,10 @@
 }
 
 .detail_img {
-  margin-left: 100px;
-  margin-right: 20px;
-  width: 80%;
   flex: 1;
-  height: 900px;
   color: white;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
   
+
 }
 .detail_info {
   flex: 1;

@@ -14,7 +14,7 @@ const RelatedCard = ({item}) => {
         <div 
         style={{backgroundImage:
         'url('+`${imageUrl}`+')', 
-        width:300, height:200,
+        width:400, height: 300,
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover"

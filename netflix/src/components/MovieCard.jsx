@@ -13,13 +13,25 @@ const MovieCard = ({item}) => {
         <div onClick={()=>navigate(`movies/${item.id}`)}
         className="movieCard"
         style={{backgroundImage:
-        'url('+`${imageUrl}`+')', 
+        'url('+`${imageUrl}`+')',
+        
+        
         }}>
 
 
         <div className='overlay'>
-            <h1 className="card_title">{item.title}</h1>
-            <div>{item.genre_ids.map(id=><Badge bg="danger">
+            <div className="card_title">
+                <h1 >{item.title}</h1>
+            </div>
+            
+            
+            <div style={{
+                display:"flex",
+                flexWrap : "wrap",
+                justifyContent: "center",
+                
+            }}>{item.genre_ids.map(id=><Badge
+            bg="danger">
                 {// 장르별 id와 item의 장르 id와 같은 값을 찾음
                 genreList.find((item) =>item.id == id).name}
             </Badge>)}
