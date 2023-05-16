@@ -62,7 +62,9 @@ button {
   cursor: pointer;
   border-radius: 10px;
   margin: auto;
-  
+  position: relative;
+  overflow: hidden;
+
 }
 .movieCard:hover {
   z-index: 3;
@@ -119,10 +121,15 @@ button {
   height: 100%;
   background: rgba(43, 41, 41, 0.9);
   align-items: center;
-  opacity: 0;
+  transition: all 0.5s;
+  opacity: 1;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  position: absolute;
 }
 .overlay:hover {
-  opacity: 1;
+  
   
   
 }

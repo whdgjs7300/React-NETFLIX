@@ -26,9 +26,6 @@ const MovieCard = ({item}) => {
             
             
             <div style={{
-                display:"flex",
-                flexWrap : "wrap",
-                justifyContent: "center",
                 
             }}>{item.genre_ids.map(id=><Badge
             bg="danger">
