@@ -19,14 +19,14 @@ import Navigation from './components/Navigation';
 
 // 9. 영화 검색을 할 수 있다. ㅇ
 // 10. 영화 정렬할수 있다. ㅇ
-// 11. 영화를 필터링 할 수 있다.  
+// 11. 영화를 필터링 할 수 있다.  ㅇ
 
 
 function App() {
   return (
     <div style={{
       backgroundColor:"black",
-      
+      margin: "0",
     }}>
       <Navigation/>
         <Routes>
