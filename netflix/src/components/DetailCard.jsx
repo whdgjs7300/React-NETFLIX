@@ -6,16 +6,14 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { movieAction } from "../redux/actions/movieAction";
 
-const DetailCard = ({detailList}) => {
+const DetailCard = ({detailList,}) => {
     const [modal,setModal] = useState(false);
 
     
 
     return ( 
         <div>
-            {
-                modal ? <Modals setModal={setModal}/> : null
-            }
+            
             
 
             <div>
@@ -29,6 +27,9 @@ const DetailCard = ({detailList}) => {
                     
                     )
                 }
+                {
+                modal ? <Modals modal={modal} setModal={setModal}/> : null
+            }
                 <hr />
                 <h1 className="title">{detailList.title}</h1>
                 <hr />

@@ -5,7 +5,7 @@ import { useParams } from "react-router-dom";
 import DetailCard from "../components/DetailCard";
 import RelatedCard from "../components/RelatedCard";
 import Review from "../components/Review";
-import ClipLoader from "react-spinners/ClipLoader";
+import Modals from "../components/Modals";
 import { movieAction } from "../redux/actions/movieAction";
 
 const MovieDetail = () => {
@@ -49,6 +49,8 @@ const MovieDetail = () => {
     }
         }>
                 </div>
+            
+
                 <div className="detail_info">
                     <DetailCard detailList={detailList}/>
                 </div>
