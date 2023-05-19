@@ -13,8 +13,8 @@ const Modals = ({modal,setModal}) => {
         event.target.pauseVideo();
     }
     const opts: YouTubeProps['opts'] = {
-        height: '100%',
-        width: '100%',
+        height: '90%',
+        width: '90%',
         playerVars: {
           // https://developers.google.com/youtube/player_parameters
         autoplay: 1,
@@ -35,7 +35,7 @@ const Modals = ({modal,setModal}) => {
     }}
         >
         
-        <Modal.Dialog style={{width:'100%', height:'100%'}} fullscreen={true}>
+        <Modal.Dialog size='xl' fullscreen='xxl-down'>
             <Modal.Header closeButton  onClick={()=>{
         setModal(false)
     }}>
@@ -43,14 +43,15 @@ const Modals = ({modal,setModal}) => {
             </Modal.Header>
 
             <Modal.Body >
-                
-                    <YouTube videoId={videoList && videoList.results[0].key} opts={opts} onReady={onPlayerReady} />;
-                
+
+            <YouTube videoId={videoList && videoList.results[0].key} opts={opts} onReady={onPlayerReady} />;
             
             </Modal.Body>
 
 
         </Modal.Dialog>
+                        
+
     </div>
     );
 }
