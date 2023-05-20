@@ -1,7 +1,4 @@
-import { useEffect } from 'react';
-import { Range } from 'react-range';
-import { useDispatch, useSelector } from 'react-redux';
-import { movieAction } from '../redux/actions/movieAction';
+import '../Css/dropdown.css';
 import Dropdown from 'react-bootstrap/Dropdown';
 
 
@@ -10,19 +7,19 @@ const FilterBox = ({withGenres, pageList,pageNum, onGenreChange}) => {
 
 
     return ( 
-        <Dropdown>
+        <Dropdown drop='down-centered' align={{md: "start"}}>
         <Dropdown.Toggle style={{width:250, height:50}}
                 variant="danger" id="dropdown-basic">
             Filter
         </Dropdown.Toggle>
 
         <Dropdown.Menu variant="dark"
-            style={{width:250,height:900,
+            style={{
             textAlign:"center",
             }}>
             <h3>Genres</h3>
             
-            
+            <div className='dropdown_Box'>
             {
                 withGenres && withGenres.map((item,i)=>{
                     return <Dropdown.Item >
@@ -32,6 +29,8 @@ const FilterBox = ({withGenres, pageList,pageNum, onGenreChange}) => {
                 })
 
             }
+            </div>
+            
             
             
         </Dropdown.Menu>

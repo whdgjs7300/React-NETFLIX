@@ -16,10 +16,10 @@ const SortBox = () => {
                 Sort
             </Dropdown.Toggle>
             <Dropdown.Menu variant="dark"
-            style={{width:250,height:250,
+            style={{width:250,height:350,
             textAlign:"center",
             }}>
-                <h3 style={{margin:"auto"}}>Sort Results By</h3>
+                <h3 style={{marginTop : "10px"}}>Sort Results By</h3>
                 <hr />
                 <Dropdown.Item 
                 onClick={() => dispatch({type: "SET_SORT_BY", payload : "popularity.desc"})}

@@ -4,3 +4,9 @@
   background-color: red;
   color: white;
 }
+
+.dropdown-item {
+  margin-top: 20px;
+  font-size: 20px;
+  
+}
