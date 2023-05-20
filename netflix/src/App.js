@@ -26,7 +26,7 @@ function App() {
   return (
     <div style={{
       backgroundColor:"black",
-      width: "100%",height: "100vh",
+      width: "100%",height: "100%",
     }}>
       <Navigation/>
         <Routes>

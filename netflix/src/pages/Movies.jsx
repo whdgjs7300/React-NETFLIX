@@ -7,7 +7,8 @@ import ClipLoader from "react-spinners/ClipLoader";
 import SortBox from "../components/SortBox";
 import FilterBox from "../components/FilterBox";
 import FilteredMovieList from "../components/FilteredMovieList";
-
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '../Css/pageNation.css';
 
 
 const Movies = () => {
@@ -71,6 +72,7 @@ const Movies = () => {
             
 <div className="Pagination_Box">
 <Pagination
+    
     activePage={pageNum}
     itemsCountPerPage={20}
     totalItemsCount={filterData ? filterData.total_results : 0} 

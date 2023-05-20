@@ -123,9 +123,7 @@ button {
   background: rgba(43, 41, 41, 0.9);
   align-items: center;
   padding: 10px;
-  bottom: 0;
-  left: 0;
-  right: 0;
+ 
 }
 .overlay:hover {
   opacity: 1;
@@ -241,7 +239,10 @@ button {
   gap: 20px;
 }
 
-
-#root {
-  background-color: black;
+.movie_font {
+  overflow: hidden; /* 내용이 넘칠 경우 숨김 처리 */
+  text-overflow: ellipsis; /* 줄넘김 표시 (...) 설정 */
+  display: -webkit-box;
+  -webkit-line-clamp: 4; /* 표시할 줄 수 */
+  -webkit-box-orient: vertical;
 }
