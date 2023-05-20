@@ -5,7 +5,6 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector, } from 'react-redux';
-import { movieAction } from '../redux/actions/movieAction';
 import { useState } from 'react';
 
 const Navigation = () => {
@@ -16,6 +15,9 @@ const Navigation = () => {
    
 
     const search = (e) => {
+        if(keyWord == "") {
+            return;
+        }
         e.preventDefault();
         navigate('/movies');
         dispatch({type : "GET_KEYWORD", payload : {keyWord: keyWord}});

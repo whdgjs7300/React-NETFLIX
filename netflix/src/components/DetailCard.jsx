@@ -1,10 +1,7 @@
-import { useParams } from "react-router-dom";
+
 import Badge from 'react-bootstrap/Badge';
-import { useEffect } from "react";
 import Modals from "./Modals";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { movieAction } from "../redux/actions/movieAction";
 
 const DetailCard = ({detailList}) => {
     

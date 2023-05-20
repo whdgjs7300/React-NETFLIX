@@ -5,7 +5,6 @@ import { useParams } from "react-router-dom";
 import DetailCard from "../components/DetailCard";
 import RelatedCard from "../components/RelatedCard";
 import Review from "../components/Review";
-import Modals from "../components/Modals";
 import { movieAction } from "../redux/actions/movieAction";
 
 const MovieDetail = () => {
@@ -16,7 +15,7 @@ const MovieDetail = () => {
     const getMoviesDetail= () => {
         dispatch(movieAction.getDetail(id));
     }
-    const [modal,setModal] = useState(false);
+
     useEffect(()=>{
         getMoviesDetail();
     },[])
@@ -50,9 +49,7 @@ const MovieDetail = () => {
     }
         }>
                 </div>
-                {
-                modal ? <Modals modal={modal} setModal={setModal}/> : null
-            }
+                
 
                 <div className="detail_info">
                     <DetailCard detailList={detailList}/>

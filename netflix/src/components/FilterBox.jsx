@@ -2,7 +2,7 @@ import '../Css/dropdown.css';
 import Dropdown from 'react-bootstrap/Dropdown';
 
 
-const FilterBox = ({withGenres, pageList,pageNum, onGenreChange}) => {
+const FilterBox = ({withGenres, onGenreChange}) => {
 
 
 

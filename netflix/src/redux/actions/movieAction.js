@@ -1,5 +1,5 @@
 import api from "../api";
-import {movieActions} from '../reducer/movieReducer'
+
 
 
 const API_KEY=process.env.REACT_APP_API_KEY

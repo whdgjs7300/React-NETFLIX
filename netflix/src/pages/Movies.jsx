@@ -57,7 +57,7 @@ const Movies = () => {
                     <SortBox/>
                     <br />
                     <FilterBox 
-                    pageNum={pageNum} withGenres={withGenres} 
+                    withGenres={withGenres} 
                     onGenreChange={handleGenreChange}/>
                 </div>
                 <div className="Movie_DataBox">
