@@ -16,6 +16,7 @@ const MovieDetail = () => {
     const getMoviesDetail= () => {
         dispatch(movieAction.getDetail(id));
     }
+    const [modal,setModal] = useState(false);
     useEffect(()=>{
         getMoviesDetail();
     },[])
@@ -49,7 +50,9 @@ const MovieDetail = () => {
     }
         }>
                 </div>
-            
+                {
+                modal ? <Modals modal={modal} setModal={setModal}/> : null
+            }
 
                 <div className="detail_info">
                     <DetailCard detailList={detailList}/>
