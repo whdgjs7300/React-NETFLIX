@@ -19,7 +19,7 @@ const DetailCard = ({detailList}) => {
                 {
                     detailList.genres && detailList.genres.map((item)=>
                     <div className="badge">
-                    <Badge bg="danger" >
+                    <Badge key={item} bg="danger" >
                         <p>{item.name}</p>
                     </Badge>
                     </div>

@@ -29,7 +29,7 @@ const MovieDetail = () => {
     
     
     return ( 
-        <div style={{color:"white"}}>
+        <div style={{color:"white", }}>
             <div className="title_Box">
                 <h1 style={{fontSize:"100px"}}>NETFLIX</h1>
                 <div  >
@@ -74,7 +74,7 @@ const MovieDetail = () => {
                         {
                         reviewList && reviewList.results.map((item)=>{
                         return <div className="review_Box">
-                        <Review reviewList={item}/>
+                        <Review key={item} reviewList={item}/>
                         </div> 
 })
                         }
@@ -82,8 +82,8 @@ const MovieDetail = () => {
                     
                     : <div className="related_Card">{
                         recommendList && recommendList.results.map((item)=>{
-                            return <div className="related_CardBox">
-                                <RelatedCard item={item} />
+                            return <div  className="related_CardBox">
+                                <RelatedCard key={item} item={item} />
                             </div> 
                             
                         })

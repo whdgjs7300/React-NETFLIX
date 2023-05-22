@@ -155,12 +155,12 @@ button {
 
 .review_Container{
   border: 4px solid white;
-  margin: 10px 100px;
+  margin: 0px 100px;
   
 }
 
 .review_Box{
-  
+  margin-bottom: 10px;
   padding-left: 12px;
   padding-top: 12px;
   
@@ -221,6 +221,7 @@ button {
 
 
 .Movie_firstBox {
+  
   margin-top: 20px;
   margin-left: 50px;
   margin-right: 50px;
@@ -237,6 +238,7 @@ button {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 20px;
+
 }
 
 .movie_font {
@@ -246,3 +248,4 @@ button {
   -webkit-line-clamp: 4; /* 표시할 줄 수 */
   -webkit-box-orient: vertical;
 }
+
