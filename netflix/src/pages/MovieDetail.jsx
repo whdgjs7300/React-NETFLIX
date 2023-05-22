@@ -30,32 +30,34 @@ const MovieDetail = () => {
     
     return ( 
         <div style={{color:"white", }}>
-            <div className="title_Box">
-                <h1 style={{fontSize:"100px"}}>NETFLIX</h1>
-                <div  >
-                    <span>{detailList?.title}</span>
+            <div className="detail_container">
+                <div className="title_Box">
+                    <h1 style={{fontSize:"100px"}}>NETFLIX</h1>
+                    <div  >
+                        <span>{detailList?.title}</span>
+                    </div>
                 </div>
-            </div>
+                    
+                <div className="detail_Box">
+                    <div className="detail_img"
+                    style={
+                {
+                    backgroundImage:
+            'url('+`https://www.themoviedb.org/t/p/w300_and_h450_bestv2${detailList.poster_path}`+')',        
+        }
+            }>
                 
-            <div className="detail_Box">
-                <div className="detail_img"
-                style={
-            {
-                backgroundImage:
-        'url('+`https://www.themoviedb.org/t/p/w300_and_h450_bestv2${detailList.poster_path}`+')',
-                backgroundPosition:"center", 
-                backgroundRepeat:"no-repeat",
-                backgroundSize : "contain"
-    }
-        }>
-                </div>
-                
+                    </div>
+                    
 
-                <div className="detail_info">
-                    <DetailCard detailList={detailList}/>
+                    <div className="detail_info">
+                        <DetailCard detailList={detailList}/>
+                    </div>
+                    
                 </div>
-                
             </div>
+
+            
             
                 
                 
@@ -72,18 +74,18 @@ const MovieDetail = () => {
                 {   modalOn == false ? 
                     <div className="review_Container">
                         {
-                        reviewList && reviewList.results.map((item)=>{
-                        return <div className="review_Box">
-                        <Review key={item} reviewList={item}/>
+                        reviewList && reviewList.results.map((item,i)=>{
+                        return <div key={i} className="review_Box">
+                        <Review  reviewList={item}/>
                         </div> 
 })
                         }
                     </div>
                     
                     : <div className="related_Card">{
-                        recommendList && recommendList.results.map((item)=>{
-                            return <div  className="related_CardBox">
-                                <RelatedCard key={item} item={item} />
+                        recommendList && recommendList.results.map((item,i)=>{
+                            return <div key={item} className="related_CardBox">
+                                <RelatedCard  item={item} />
                             </div> 
                             
                         })

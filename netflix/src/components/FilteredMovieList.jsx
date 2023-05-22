@@ -25,7 +25,7 @@ const FilteredMovieList = ({item}) => {
 
         <div className='overlay'>
             <h1 className="card_title">{item.title}</h1>
-            <div>{item.genre_ids.map(id=><Badge bg="danger">
+            <div>{item.genre_ids.map(id=><Badge key={id} bg="danger">
                 {// 장르별 id와 item의 장르 id와 같은 값을 찾음
                 withGenres && withGenres.find((item) => item.id === id).name }
             </Badge>)}

@@ -22,7 +22,7 @@ const FilterBox = ({withGenres, onGenreChange}) => {
             <div className='dropdown_Box'>
             {
                 withGenres && withGenres.map((item,i)=>{
-                    return <Dropdown.Item >
+                    return <Dropdown.Item key={i} >
                         <button onClick={()=>onGenreChange(item.id)}>{item.name}</button>
                     </Dropdown.Item>
                     

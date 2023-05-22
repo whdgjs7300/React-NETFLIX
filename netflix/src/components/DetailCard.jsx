@@ -17,9 +17,9 @@ const DetailCard = ({detailList}) => {
 
             <div>
                 {
-                    detailList.genres && detailList.genres.map((item)=>
-                    <div className="badge">
-                    <Badge key={item} bg="danger" >
+                    detailList.genres && detailList.genres.map((item,i)=>
+                    <div key={i} className="badge">
+                    <Badge  bg="danger" >
                         <p>{item.name}</p>
                     </Badge>
                     </div>
@@ -32,9 +32,9 @@ const DetailCard = ({detailList}) => {
                 <hr />
                 
                 <div className="card_Info">
-                    <span>{detailList.popularity}</span>
-                    <span>{detailList.vote_average}</span>
-                    <span>{
+                    <span>인기도 : {detailList.popularity}</span>
+                    <span>평점 : {detailList.vote_average}</span>
+                    <span> 연령제한 : { 
                         detailList.adult == false ? "under 18" : "청불"
                         }</span>
                 </div>
@@ -42,8 +42,10 @@ const DetailCard = ({detailList}) => {
                 <p className="P_tag">{detailList.overview}</p>
                 <hr />
                 <div>
-                    <p>예산</p>
-                    <p>{detailList.release_date}</p>
+                    <p>예산 :  ${detailList.budget}</p>
+                    <p>수익 : ${detailList.revenue}</p>
+                    <p>개봉일 : {detailList.release_date}</p>
+                    <p>영화시간 : {detailList.runtime}분</p>
                     <hr />
                     <button
                     onClick={()=>{

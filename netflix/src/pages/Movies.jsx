@@ -62,8 +62,8 @@ const Movies = () => {
                 </div>
                 <div className="Movie_DataBox">
                     {
-                    filterData && filterData.results.map((item)=>{
-                        return <FilteredMovieList item={item}/>
+                    filterData && filterData.results.map((item,i)=>{
+                        return <FilteredMovieList key={i} item={item}/>
                     })
                     }
                 </div>
