@@ -32,3 +32,11 @@
     .page-item.active .page-link {
     background-color: darkred;
     }
+
+    @media (max-width: 768px){
+        .pagination {
+            display: flex;
+            margin: auto;
+            justify-content: center;
+            }
+    }
