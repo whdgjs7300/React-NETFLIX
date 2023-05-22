@@ -26,12 +26,29 @@ const Home = () => {
     return ( 
         <div style={{color : "white"}}>
             <Banner movie={popularMovies.results[0]}/>
-            <h1>popular Movie</h1>
-            <MovieSlide movies={popularMovies}/>
-            <h1>Top rated Movie</h1>
-            <MovieSlide movies={topRatedMovies}/>
-            <h1>upcoming Movie</h1>
-            <MovieSlide movies={upComingMovies}/>
+            <div style={{margin:"20px"}}>
+                <h1 style={{textAlign:"center",
+                fontSize :"40px", fontWeight : "700"
+            }}>popular Movie</h1>
+            </div>     
+    
+                <MovieSlide movies={popularMovies}/>
+            
+            <div style={{margin:"20px"}}>
+                <h1 style={{textAlign:"center",
+                fontSize :"40px", fontWeight : "700"
+            }}>Top rated Movie</h1>
+            </div>
+            
+                <MovieSlide movies={topRatedMovies}/>
+            
+            <div style={{margin:"20px"}}>
+                <h1 style={{textAlign:"center",
+                fontSize :"40px", fontWeight : "700"
+            }} >upcoming Movie</h1>
+            </div>
+            
+                <MovieSlide movies={upComingMovies}/>
         </div>
     );
 }

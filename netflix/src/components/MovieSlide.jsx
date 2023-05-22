@@ -1,4 +1,4 @@
-
+import '../Css/carousel.css';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 
@@ -32,13 +32,15 @@ const MovieSlide = ({movies}) => {
 
     return (  
         
-            <div>
+            
             <Carousel autoPlay='true' responsive={responsive}>
                 {movies.results.map((item,i) => 
-                
-                <MovieCard key={item} item={item}/>)}
+                <div className='carousel_Box'>
+                    <MovieCard key={item} item={item}/>
+                </div>
+                )}
             </Carousel>
-            </div>
+            
             
         
     );
