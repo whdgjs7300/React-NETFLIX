@@ -71,28 +71,29 @@ const MovieDetail = () => {
                     </div> }
                 
                 
-                {   modalOn == false ? 
-                    <div className="review_Container">
-                        {
-                        reviewList && reviewList.results.map((item,i)=>{
-                        return <div key={i} className="review_Box">
-                        <Review  reviewList={item}/>
-                        </div> 
-})
-                        }
-                    </div>
-                    
-                    : <div className="related_Card">{
-                        recommendList && recommendList.results.map((item,i)=>{
-                            return <div key={item} className="related_CardBox">
-                                <RelatedCard  item={item} />
-                            </div> 
-                            
-                        })
-                        }</div>
-                    
-                    
-                }
+                    {modalOn ? (
+                        <div className="related_Card">
+                            {recommendList &&
+                            recommendList.results.map((item, i) => {
+                                return (
+                                <div key={item} className="related_CardBox">
+                                    <RelatedCard item={item} />
+                                </div>
+                                );
+                            })}
+                        </div>
+                        ) : (
+                        <div className="review_Container">
+                            {reviewList &&
+                            reviewList.results.map((item, i) => {
+                                return (
+                                <div key={i} className="review_Box">
+                                    <Review reviewList={item} />
+                                </div>
+                                );
+                            })}
+                        </div>
+)}
                 
                 
                 
