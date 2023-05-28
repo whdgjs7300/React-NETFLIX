@@ -31,7 +31,8 @@ https://jongheon-netflix.netlify.app/
  <img src="https://images.velog.io/images/shin6403/post/648d49e1-951f-4810-a135-00126e8db172/react-1-svg.jpg" alt="react" width="70" height="40"/>  
  <img src="https://images.velog.io/images/a9120a/post/076364df-36f8-4b9b-a150-d1d3c176553e/twitterimage.jpg" alt="react" width="70" height="40"/>  
  
-# 프로젝트 설명
+## 프로젝트 설명
+ 
 "코딩알려주는 누나"의 최종 과제로 이때가지 강의들의 배운 내용들로 스스로 만드는 Netflix 홈페이지이다. </br>
 기존의 NetFlix 홈페이지의 기능을 TMDB Movie Api 사이트를 이용하여 기능들을 구현해야 했는데 </br>
 1. 홈페이지에선 가장 인기있는 영화리스트, 가장 평점 좋은 영화리스트, 상영 예정작 리스트 구현
@@ -43,5 +44,11 @@ https://jongheon-netflix.netlify.app/
 7. 영화를 인기도 순으로 정렬 할 수 있다.
 8. 장르별로 영화를 필터링 할 수 있다.
 
+## 진행하면서 느낀점
 
-## 진행하면서 느낀 점
+정답코드도 없고 막상 혼자 기능 구현을 하려니 막막한 생각이 들었고 새롭게 배운 학습내용들로 상황에 맞는 올바른 코드로 개발을 하고 싶었고, 그 과정에서 엄청난 고통을 동반했지만 
+결과적으로 봤을 때 엄청난 성장을 경험했다. 아직 많이 부족하지만 
+개발하는 과정에서 맞지 않는 코드들, 그로인해 발생한 오류, 오류를 구글링 혹은 생각을 다시 하여 새롭게 짠 코드들로 극복하는 스스로를 보면서 엄청난 행복과 성취감을 느낀 프로젝트 였다.
+
+
+
