@@ -1,5 +1,5 @@
 # React-Netflix
- toy-Project
+
  
  <img width="300" height="350" alt="스크린샷 2023-05-29 오전 1 15 57" src="https://github.com/whdgjs7300/React-NETFLIX/assets/112137464/03f81892-ca1c-4730-ab44-f22e759467b7">
 <img width="300" height="350" alt="스크린샷 2023-05-29 오전 1 18 16" src="https://github.com/whdgjs7300/React-NETFLIX/assets/112137464/dbce30aa-6d7a-4f34-ada1-06a0714692ec">
